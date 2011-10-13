@@ -1,24 +1,3 @@
-/*********************************************************************************
- *@file
- *@author t.hayamizu
- *@date
- ********************************************************************************/
-//----------------------------
-//include
-#include <iostream>
-#include <string>
-#include <new>
+#include "%file-without-ext%.h"
 
-//----------------------------
-//define
-#define DEBUG 1
 
-//----------------------------
-//using declare
-using namespace std; 
-
-int main()
-{
-  
-  return 0;
-}

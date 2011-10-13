@@ -66,7 +66,7 @@
 ;;install-elispと互換にする
 (auto-install-compatibility-setup)
 
-;;ediff関連のバッファを一つにまと
+;;ediff関連のバッファを一つにまとめる
 (setq ediff-window-setup-function 
       'ediff-setup-windows-plain)
 
@@ -89,8 +89,8 @@
 ;;;------------------------------------------------
 ;;行番号の表示
 (require 'linum)          ;linum-modeをロード
-(global-linum-mode t)     ;
-(setq linum-format "%5d");
+(global-linum-mode nil)    
+(setq linum-format "%5d")
 
 ;; 行間指定
 (set-default 'line-spacing 2)
@@ -212,6 +212,7 @@
 ;;;メニュー
 ;;;------------------------------------------------
 ;;メニューの日本語化
+;;文字化けするので却下
 ;(if (equal (substring (concat (getenv "LANG") "__") 0 2) "ja")
 ;  (require 'menu-tree))
 ;(setq tree-menu-coding-system 'utf-8)
@@ -243,6 +244,7 @@
 
 ;;バッファ切替を強化
 (iswitchb-mode t)
+
 ;;バッファ読み取り関数をiswitchbにする
 (setq read-buffer-function 'iswitchb-read-buffer)
 ;;正規表現を使わない
@@ -261,8 +263,6 @@
       (setq bookmark-alist (cons latest (delq latest bookmark-alist))))
     (bookmark-save))
   (add-hook 'bookmark-after-jump-hook 'bookmark-arrange-latest-top))
-
-;;シェルから現在のEmacsへアクセスする
 
 ;;使わないバッファを消す
 ;(require 'tempbuf)
@@ -296,6 +296,7 @@
 
 ;;wdired
 (require 'wdired)
+
 ;;;------------------------------------------------
 ;;;windows.elとrevive.elを使ってフレームを管理
 ;;;前回起動時の状態も復元可能
@@ -314,7 +315,6 @@
 ;;;------------------------------------------------
 ;;;elscreeenを使ってtabを管理する
 ;;;------------------------------------------------
-
 (require 'elscreen)
 (require 'elscreen-dnd)
 (require 'elscreen-howm)
@@ -343,7 +343,6 @@
 ;;;------------------------------------------------
 (require 'anything-startup)
 
-
 ;;yasnippet
 (require 'yasnippet-config)
 (require 'anything-c-yasnippet)
@@ -363,11 +362,36 @@
  (setq auto-insert-directory "~/.emacs.d/template/")
  (setq auto-insert-alist
        (append '(
- 		("\\.cpp" ."template.cpp")
- 		("\\.c"  . "template.c");
- 		("\\.h$"  . "template.h")		
+ 		("\\.cpp"  . ["template.cpp" my-tempalte])
+ 		("\\.c"    . ["template.c" my-template]);
+ 		("\\.h$"   . ["template.h" my-template])
+		("\\.java" . ["template.h" my-template])
+		("\\.pl"   . ["template.pl" my-template])
+		("\\.rb"   . ["template.rb" my-template])
  		)
  	      auto-insert-alist))
+(require 'cl)
+
+(defvar template-replacements-alists
+  '(("%file%"             . (lambda () (file-name-nondirectory (buffer-file-name))))
+    ("%file-without-ext%" . (lambda () (file-name-sans-extension (file-name-nondirectory (buffer-file-name)))))
+    ("%include-guard%"    . (lambda () (format "NYX_INCLUDED_%s_H_" (upcase (file-name-sans-extension (file-name-nondirectory buffer-file-name))))))))
+
+(defun my-template ()
+  (time-stamp)
+  (mapc #'(lambda(c)
+        (progn
+          (goto-char (point-min))
+          (replace-string (car c) (funcall (cdr c)) nil)))
+    template-replacements-alists)
+  (goto-char (point-max))
+  (message "done."))
+(add-hook 'find-file-not-found-hooks 'auto-insert)
+;;;------------------------------------------------
+;;;auto-completeによる自動補完
+;;;------------------------------------------------
+(require 'auto-complete)
+(global-auto-complete-mode t)
 
 ;;;------------------------------------------------
 ;;;辞書とスペル
@@ -390,7 +414,7 @@
  	 (local-file (file-relative-name
  		      temp-file
  		      (file-name-directory buffer-file-name))))
-    (list "gcc-4" (list "-Wall" "-Wextra" "-Wconversion"  "-fsyntax-only" local-file))))
+    (list "g++-4" (list "-Wall" "-Wextra" "-Wconversion"  "-fsyntax-only" local-file))))
 (push '("\\.cpp$" flymake-cc-init) flymake-allowed-file-name-masks)
 
 
@@ -406,7 +430,7 @@
             (lambda ()(local-set-key "\C-cc" 'smart-compile))))
 
 ;;;configure cc-mode-common
- (add-hook 'cc-mode-common-hook
+ (add-hook 'c++-mode-hook
           '(lambda ()
  	     (flymake-mode t)))
 
@@ -592,11 +616,13 @@
 (require 'org)
 
 ;;見出し
+
 ;;メモをとる
 
 ;;Todo
  (setq org-todo-keywords '("TODO" "Wait" "DONE")
       org-todo-interpretation 'sequence)
+
 ;;カレンダー
 
 
@@ -606,7 +632,6 @@
 ;;cygwin-mount
 (require 'cygwin-mount)
 (cygwin-mount-activate)
-
 
 ;;-----------------------------------------------
 ;; HOWM　ウィキって略すな！
@@ -720,7 +745,5 @@
 ;(resume)
 
 
-;;auto-completeによる辞書
-;org-modeの細かい設定
-;キーバインディング
+
 
