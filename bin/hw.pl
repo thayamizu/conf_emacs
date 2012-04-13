@@ -1,4 +1,4 @@
-#!d:/cygwin/usr/bin/perl
+#!d:/usr/bin/perl
 #
 # hw.pl - Hatena Diary Writer (with Loader).
 #
