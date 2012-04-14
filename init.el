@@ -575,7 +575,7 @@ screen-list " ")))
 ;; 基本設定
 (when (eq system-type 'windows-nt)
   (setq migemo-command "d:/bin/emacs-23.2/bin/cmigemo"))
-(when (eq system-type 'ns) 
+(when (eq system-type 'darwin) 
   (setq migemo-command "/usr/local/bin/cmigemo"))
 (setq migemo-options '("-q" "--emacs" "-i" "\a"))
 ;; migemo-dict のパスを指定
@@ -710,7 +710,7 @@ screen-list " ")))
  ;;set w3m
 (when (eq system-type 'windows-nt)
   (setq w3m-command "d:/cygwin/bin/w3m"))
-(when (eq system-type 'ns)
+(when (eq system-type 'darwin)
   (setq w3m-command "/usr/local/bin/w3m"))
 
 (autoload 'w3m "w3m"
