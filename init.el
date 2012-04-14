@@ -346,19 +346,19 @@ screen-list " ")))
 ;; ;;;------------------------------------------------
 ;; ;;;入力支援
 ;; ;;;------------------------------------------------
- (require 'anything-startup)
+(require 'anything-startup)
 
 ;; ;;yasnippet
 (require 'yasnippet-config)
 (require 'anything-c-yasnippet)
- (yas/setup "~/.emacs.d/plugins")
+(yas/setup "~/.emacs.d/plugins")
 
 ;; ;; メニューは使う
-(setq yas/use-menu t)
+;(setq yas/use-menu t)
 
 ;; ;; トリガはSPC, 次の候補への移動はTAB
-(setq yas/trigger-key (kbd "TAB TAB"))
-(setq yas/next-field-key (kbd "TAB"))
+;(setq yas/trigger-key (kbd "TAB TAB"))
+;(setq yas/next-field-key (kbd "TAB"))
 
 ;; ;;autoinsertによるテンプレート挿入
 ;; ;; ;;ref ひげぽん
@@ -422,7 +422,7 @@ screen-list " ")))
 	 (local-file (file-relative-name
 		      temp-file
 		      (file-name-directory buffer-file-name))))
-    (list "gcc" (list "-Wall" "-Wextra" "-Wconversion" "-fsyntax-only" local-file))))
+    (list "g++-4" (list "-Wall" "-Wextra" "-Wconversion" "-fsyntax-only" local-file))))
 (push '("\\.cpp$" flymake-cc-init) flymake-allowed-file-name-masks)
 
 
@@ -500,7 +500,7 @@ screen-list " ")))
 ;;scheme-mode
 (autoload 'run-scheme "cmuscheme" "Run an inferior Scheme process." t)
 (defun run-guile () (interactive) (run-scheme "guile"))
-(defun run-gauche () (interactive) (run-scheme "/opt/local/bin/gosh"))
+;(defun run-gauche () (interactive) (run-scheme "/opt/local/bin/gosh"))
 
 ;;javascript-mode
 (autoload 'javascript-mode "javascript" nil t)
@@ -573,7 +573,10 @@ screen-list " ")))
 ;;;------------------------------------------------
 ;;migemo
 ;; 基本設定
-(setq migemo-command "/usr/local/bin/cmigemo")
+(when (eq system-type 'windows-nt)
+  (setq migemo-command "d:/bin/emacs-23.2/bin/cmigemo"))
+(when (eq system-type 'ns) 
+  (setq migemo-command "/usr/local/bin/cmigemo"))
 (setq migemo-options '("-q" "--emacs" "-i" "\a"))
 ;; migemo-dict のパスを指定
 (setq migemo-dictionary "~/.emacs.d/dict/euc-jp.d/migemo-dict")
@@ -705,7 +708,11 @@ screen-list " ")))
 ;;-----------------------------------------------
 ;; ;; ;;;w3m
  ;;set w3m
-(setq w3m-command "/usr/local/bin/w3m")
+(when (eq system-type 'windows-nt)
+  (setq w3m-command "d:/cygwin/bin/w3m"))
+(when (eq system-type 'ns)
+  (setq w3m-command "/usr/local/bin/w3m"))
+
 (autoload 'w3m "w3m"
   "Interface for w3m on Emacs." t)
 (autoload 'w3m-find-file "w3m"
@@ -812,7 +819,4 @@ screen-list " ")))
 ;;前回起動時の状態を復元する
 ;(resume)
 
-
-;;
-(server-start)
 
