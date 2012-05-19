@@ -219,7 +219,7 @@ and if there is no completions, an original command will be fallbacked."
                     (fboundp 'ac-set-trigger-key))
            (ac-set-trigger-key value))))
 
-(defcustom ac-auto-start 2
+(defcustom ac-auto-start 4;2
   "Non-nil means completion will be started automatically.
 Positive integer means if a length of a word you entered is larger than the value,
 completion will be started automatically.

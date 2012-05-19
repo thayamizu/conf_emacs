@@ -23,7 +23,7 @@
 ;  (let ((table (yas/snippet-table-get-create major-mode)))
 ;    (if table
 ;        (ac-yasnippet-candidate-1 table))))
-  (let ((table (yas/snippet-table-get-create major-mode))
+  (let ((tables (yas/get-snippet-tables major-mode))
 	candidate)
     (when tables 
         (mapc (lambda (table)

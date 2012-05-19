@@ -1,6 +1,6 @@
 ;;;------------------------------------------------
 ;;;基本的な設定
-;;;------------------------------------------------
+;;------------------------------------------------
 ;;ロードパスの設定
 (add-to-list 'load-path "~/.emacs.d/lib/apel-10.8")
 (add-to-list 'load-path "~/.emacs.d/lib/film-1.14.9")
@@ -284,7 +284,7 @@
 (auto-image-file-mode t)
 (setq thumbs-thumbsdir
        (expand-file-name "~/.emacs-thumbs"))
- (setq thumbs-temp-dir (expand-file-name "~/tmp"))
+(setq thumbs-temp-dir (expand-file-name "~/tmp"))
 
 
 
@@ -349,6 +349,7 @@ screen-list " ")))
 (require 'anything-startup)
 
 ;; ;;yasnippet
+(require 'yasnippet)
 (require 'yasnippet-config)
 (require 'anything-c-yasnippet)
 (yas/setup "~/.emacs.d/plugins")
@@ -396,19 +397,55 @@ screen-list " ")))
 ;; ;;;------------------------------------------------
 ;; ;;;auto-completeによる自動補完
 ;; ;;;------------------------------------------------
-(require 'auto-complete)
 (require 'auto-complete-config)
-;(global-auto-complete-mode t)
-;(add-to-list 'ac-dictionary-directories (concat ac-dir "ac-dict/"))
+(global-auto-complete-mode t);
+
+(ac-set-trigger-key "TAB")
+(require 'auto-complete-yasnippet)
+(require 'auto-complete-clang)
+(defun my-ac-cc-mode-setup ()
+  ;;tなら自動で補完画面がでる．nilなら補完キーによって出る
+ ; (setq ac-auto-start 3)
+  (setq ac-clang-prefix-header "~/.emacs.d/ac-dict/stdafx.pch")
+  (setq ac-clang-flags '("-w" "-ferror-limit" "1"))
+  (setq ac-sources '(
+		     ac-source-clang
+		     ac-source-yasnippet  
+		     ac-source-gtags)))
+
+
+(defun my-ac-config ()
+  (global-set-key "\M-/" 'ac-start)
+  ;; C-n/C-p で候補を選択
+  (define-key ac-complete-mode-map "\C-n" 'ac-next)
+  (define-key ac-complete-mode-map "\C-p" 'ac-previous)
+  
+  (setq-default ac-sources '(ac-source-abbrev 
+   			     ac-source-dictionary 
+   			     ac-source-yasnippet
+   			     ac-source-words-in-same-mode-buffers))
+  (add-hook 'c++-mode-hook 'my-ac-cc-mode-setup)
+  (add-hook 'emacs-lisp-mode-hook 'ac-emacs-lisp-mode-setup)
+  (add-hook 'c-mode-common-hook 'my-ac-cc-mode-setup)
+  (add-hook 'ruby-mode-hook 'ac-ruby-mode-setup)
+  (add-hook 'auto-complete-mode-hook 'ac-common-setup)
+  (global-auto-complete-mode t))
+
+(my-ac-config)
+
 
 ;; ;;;------------------------------------------------
 ;; ;;;辞書とスペル
 ;; ;;;------------------------------------------------
+;; http://www4.kcn.ne.jp/~boochang/emacs/ispell.html 
 ;; ;;辞書ファイル
-
-;; ;;辞書補完
-
-;; ;;スペルチェック
+;; ;; コマンドの設定
+;; (setq ispell-program-name "aspell")	; ispell の代わりに aspell を使う
+;; (setq ispell-grep-command "grep")	; デフォルトの egrep が Cygwin ではシンボリックリンク
+;; 					; なので、Meadow から起動できない
+;; ;; 日本語ファイル中の英単語スペルチェックを可能にする
+;; (eval-after-load "ispell"
+;;   '(add-to-list 'ispell-skip-region-alist '("[^\000-\377]")))
 
 
 ;; ;;;-----------------------------------------------
@@ -438,9 +475,10 @@ screen-list " ")))
             (lambda ()(local-set-key "\C-cc" 'smart-compile))))
 
 ;;;configure cc-mode-common
- (add-hook 'c++-mode-hook
-          '(lambda ()
- 	     (flymake-mode t)))
+ (add-hook 'cc-mode-common-hook
+	   '(lambda ()
+	      (flymake-mode t)
+	    ))
 
 ;;cperl-mode
 ;; ;;ref. http://www.bookshelf.jp/soft/meadow_41.html#SEC619
@@ -451,7 +489,7 @@ screen-list " ")))
 (setq interpreter-mode-alist (append interpreter-mode-alist
 
                                      '(("perl" . cperl-mode))))
-5
+
 ;;ruby-mode
 (autoload 'ruby-mode "ruby-mode"
   "Mode for editing ruby source files" t)
@@ -656,8 +694,9 @@ screen-list " ")))
 ;; Windows 固有の設定
 ;;-----------------------------------------------
 ;;cygwin-mount
-(require 'cygwin-mount)
-(cygwin-mount-activate)
+(when (eq system-type 'windows-nt)
+  (require 'cygwin-mount)
+  (cygwin-mount-activate))
 
 ;;-----------------------------------------------
 ;; HOWM　ウィキって略すな！
@@ -820,3 +859,5 @@ screen-list " ")))
 ;(resume)
 
 
+;;サーバー起動
+(server-start) 

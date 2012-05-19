@@ -1,0 +1,843 @@
+;; Object home/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "home/"
+  :tables (list 
+   (semanticdb-table "test1.cpp"
+    :major-mode 'c++-mode
+    :tags 
+        '( ("iostream" include (:system-flag t) nil [1 20])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [22 42])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [53 62])
+                    ("argv" variable
+                       (:pointer 1
+                        :dereference 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [63 76]))                  
+                :type "int")
+                nil [44 95]))          
+    :file "test1.cpp"
+    :pointmax 96
+    :fsize 104
+    :lastmodtime '(20406 21543)
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "sample.cpp"
+    :major-mode 'c++-mode
+    :tags 
+        '( ("iostream" include (:system-flag t) nil [1 20])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [22 42])
+            ("Name" type
+               (:members 
+                  ( ("public" label nil (reparse-symbol classsubparts) [57 64])
+                    ("Name" function
+                       (:prototype-flag t
+                        :constructor-flag t
+                        :type ("Name" type (:type "class") nil nil))
+                        (reparse-symbol classsubparts) [67 74])
+                    ("Name" function
+                       (:prototype-flag t
+                        :destructor-flag t
+                        :typemodifiers ("virtual")
+                        :type "void")
+                        (reparse-symbol classsubparts) [77 93]))                  
+                :type "class")
+                nil [44 96])
+            ("function" function (:type "void") nil [98 117])
+            ("main" function (:type "int") nil [119 192]))          
+    :file "sample.cpp"
+    :pointmax 193
+    :fsize 211
+    :lastmodtime '(20406 25994)
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "sample.java"
+    :major-mode 'java-mode
+    :tags 
+        '( ("java.*" include nil nil [1 15])
+            ("java.io.*" include nil nil [16 33])
+            ("sample" type
+               (:members 
+                  ( ("sample" function
+                       (:constructor-flag t
+                        :typemodifiers ("public"))
+                        (reparse-symbol class_member_declaration) [54 95])
+                    ("y_" variable (:type "int") (reparse-symbol class_member_declaration) [108 111])
+                    ("x_" variable (:type "int") (reparse-symbol class_member_declaration) [101 108]))                  
+                :type "class")
+                nil [35 113]))          
+    :file "sample.java"
+    :pointmax 116
+    :fsize 129
+    :lastmodtime '(20406 24138)
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "sample2.c"
+    :major-mode 'c-mode
+    :tags 
+        '( ("stdio.h" include (:system-flag t) nil [55 74])
+            ("stdlib.h" include (:system-flag t) nil [75 95])
+            ("string.h" include (:system-flag t) nil [96 116])
+            ("assert.h" include (:system-flag t) nil [117 137])
+            ("time.h" include (:system-flag t) nil [138 155])
+            ("stdarg.h" include (:system-flag t) nil [156 175])
+            ("sys/types.h" include (:system-flag t) nil [176 198])
+            ("sys/socket.h" include (:system-flag t) nil [199 222])
+            ("netinet/in.h" include (:system-flag t) nil [223 246])
+            ("unistd.h" include (:system-flag t) nil [247 266])
+            ("sys/ioctl.h" include (:system-flag t) nil [267 289])
+            ("arpa/inet.h" include (:system-flag t) nil [290 312])
+            ("netpacket/packet.h" include (:system-flag t) nil [313 342])
+            ("main" function (:type "int") nil [344 433]))          
+    :file "sample2.c"
+    :pointmax 434
+    :fsize 461
+    :lastmodtime '(20393 20316)
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "Visitor.cpp"
+    :major-mode 'c++-mode
+    :tags 
+        '( ("iostream" include (:system-flag t) nil [1 20])
+            ("string" include (:system-flag t) nil [21 38])
+            ("ns" type (:type "namespace") nil [40 56])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [67 76])
+                    ("argv" variable
+                       (:pointer 1
+                        :dereference 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [77 90]))                  
+                :type "int")
+                nil [58 109]))          
+    :file "Visitor.cpp"
+    :pointmax 110
+    :fsize 120
+    :lastmodtime '(20402 21825)
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "Strategy.cpp"
+    :major-mode 'c++-mode
+    :tags 
+        '( ("iostream" include (:system-flag t) nil [1 20])
+            ("string" include (:system-flag t) nil [21 38])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [40 60])
+            ("ns" type
+               (:members 
+                  ( ("Hand" type
+                       (:members 
+                          ( ("public" label nil (reparse-symbol classsubparts) [90 97])
+                            ("Hand" function
+                               (:constructor-flag t
+                                :type ("Hand" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [100 112])
+                            ("Hand" function
+                               (:destructor-flag t
+                                :typemodifiers ("virtual")
+                                :type "void")
+                                (reparse-symbol classsubparts) [115 136]))                          
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [77 139])
+                    ("Strategy" type
+                       (:members 
+                          ( ("public" label nil (reparse-symbol classsubparts) [157 164])
+                            ("Strategy" function
+                               (:constructor-flag t
+                                :type ("Strategy" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [167 183])
+                            ("Strategy" function
+                               (:destructor-flag t
+                                :typemodifiers ("virtual")
+                                :type "void")
+                                (reparse-symbol classsubparts) [186 211])
+                            ("nextHand" function
+                               (:pure-virtual-flag t
+                                :prototype-flag t
+                                :typemodifiers ("virtual")
+                                :type ("Hand" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [214 242])
+                            ("study" function
+                               (:pure-virtual-flag t
+                                :prototype-flag t
+                                :typemodifiers ("virtual")
+                                :arguments 
+                                  ( ("win" variable (:type "bool") (reparse-symbol arg-sub-list) [264 273]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [245 278]))                          
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [140 281])
+                    ("WinningStrategy" type
+                       (:members 
+                          ( ("public" label nil (reparse-symbol classsubparts) [306 313])
+                            ("WinningStrategy" function
+                               (:constructor-flag t
+                                :type ("WinningStrategy" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [316 339])
+                            ("WinningStrategy" function
+                               (:destructor-flag t
+                                :typemodifiers ("virtual")
+                                :type "void")
+                                (reparse-symbol classsubparts) [342 371])
+                            ("nextHand" function (:type ("Hand" type (:type "class") nil nil)) (reparse-symbol classsubparts) [374 414])
+                            ("study" function
+                               (:arguments 
+                                  ( ("win" variable (:type "bool") (reparse-symbol arg-sub-list) [428 437]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [417 443]))                          
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [282 446])
+                    ("ProbStrategy" type
+                       (:members 
+                          ( ("public" label nil (reparse-symbol classsubparts) [468 475])
+                            ("ProbStrategy" function
+                               (:constructor-flag t
+                                :type ("ProbStrategy" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [478 498])
+                            ("ProbStrategy" function
+                               (:destructor-flag t
+                                :typemodifiers ("virtual")
+                                :type "void")
+                                (reparse-symbol classsubparts) [501 529])
+                            ("nextHand" function (:type ("Hand" type (:type "class") nil nil)) (reparse-symbol classsubparts) [532 572])
+                            ("study" function
+                               (:arguments 
+                                  ( ("win" variable (:type "bool") (reparse-symbol arg-sub-list) [586 595]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [575 601]))                          
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [447 604])
+                    ("Player" type
+                       (:members 
+                          ( ("public" label nil (reparse-symbol classsubparts) [620 627])
+                            ("Player" function
+                               (:prototype-flag t
+                                :constructor-flag t
+                                :type ("Player" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [630 639])
+                            ("Player" function
+                               (:prototype-flag t
+                                :destructor-flag t
+                                :typemodifiers ("virtual")
+                                :type "void")
+                                (reparse-symbol classsubparts) [642 660]))                          
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [605 663]))                  
+                :type "namespace")
+                nil [62 665])
+            ("main" function (:type "int") nil [666 692]))          
+    :file "Strategy.cpp"
+    :pointmax 693
+    :fsize 751
+    :lastmodtime '(20402 21679)
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "State.cpp"
+    :major-mode 'c++-mode
+    :tags 
+        '( ("iostream" include (:system-flag t) nil [1 20])
+            ("string" include (:system-flag t) nil [21 38])
+            ("memory" include (:system-flag t) nil [39 56])
+            ("NS" type
+               (:members 
+                  ( ("ICharacterState" type
+                       (:members 
+                          ( ("public" label nil (reparse-symbol classsubparts) [106 113])
+                            ("ICharacterState" function
+                               (:constructor-flag t
+                                :type ("ICharacterState" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [116 139])
+                            ("ICharacterState" function
+                               (:destructor-flag t
+                                :typemodifiers ("virtual")
+                                :type "void")
+                                (reparse-symbol classsubparts) [142 173])
+                            ("Action" function
+                               (:pure-virtual-flag t
+                                :prototype-flag t
+                                :typemodifiers ("virtual")
+                                :type "void")
+                                (reparse-symbol classsubparts) [176 202]))                          
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [73 205])
+                    ("CharacterStateA" type
+                       (:superclasses 
+                          ( ("ICharacterState" type
+                               (:protection "public"
+                                :type "class")
+                                nil nil))                          
+                        :members 
+                          ( ("public" label nil (reparse-symbol classsubparts) [271 278])
+                            ("CharacterStateA" function
+                               (:constructor-flag t
+                                :type ("CharacterStateA" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [281 324])
+                            ("CharacterStateA" function
+                               (:destructor-flag t
+                                :typemodifiers ("virtual")
+                                :type "void")
+                                (reparse-symbol classsubparts) [327 359])
+                            ("Action" function (:type "void") (reparse-symbol classsubparts) [362 420]))                          
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [222 423])
+                    ("CharacterStateB" type
+                       (:superclasses 
+                          ( ("ICharacterState" type
+                               (:protection "public"
+                                :type "class")
+                                nil nil))                          
+                        :members 
+                          ( ("public" label nil (reparse-symbol classsubparts) [490 497])
+                            ("CharacterStateB" function
+                               (:constructor-flag t
+                                :type ("CharacterStateB" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [500 543])
+                            ("CharacterStateB" function
+                               (:destructor-flag t
+                                :typemodifiers ("virtual")
+                                :type "void")
+                                (reparse-symbol classsubparts) [546 578])
+                            ("Action" function (:type "void") (reparse-symbol classsubparts) [581 639]))                          
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [441 642])
+                    ("StateType" type
+                       (:members 
+                          ( ("" type
+                               (:members 
+                                  ( ("A" variable
+                                       (:constant-flag t
+                                        :default-value (687 688)
+                                        :type "int")
+                                        (reparse-symbol enumsubparts) [685 688])
+                                    ("B" variable
+                                       (:constant-flag t
+                                        :type "int")
+                                        (reparse-symbol enumsubparts) [690 692])
+                                    ("StateTypeNum" variable
+                                       (:constant-flag t
+                                        :type "int")
+                                        (reparse-symbol enumsubparts) [693 706]))                                  
+                                :type "enum")
+                                (reparse-symbol classsubparts) [679 707]))                          
+                        :type "struct")
+                        (reparse-symbol namespacesubparts) [658 710])
+                    ("Player" type
+                       (:members 
+                          ( ("public" label nil (reparse-symbol classsubparts) [726 733])
+                            ("Player" function
+                               (:constructor-flag t
+                                :type ("Player" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [736 800])
+                            ("Player" function
+                               (:destructor-flag t
+                                :typemodifiers ("virtual")
+                                :type "void")
+                                (reparse-symbol classsubparts) [803 860])
+                            ("ChangeState" function
+                               (:arguments 
+                                  ( ("s" variable (:type "int") (reparse-symbol arg-sub-list) [880 886]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [863 1137])
+                            ("Play" function (:type "void") (reparse-symbol classsubparts) [1140 1160])
+                            ("private" label nil (reparse-symbol classsubparts) [1161 1169])
+                            ("state_" variable
+                               (:pointer 1
+                                :type ("ICharacterState" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [1172 1196]))                          
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [711 1199]))                  
+                :type "namespace")
+                nil [58 1202])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [1213 1222])
+                    ("argv" variable
+                       (:pointer 1
+                        :dereference 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [1223 1236]))                  
+                :type "int")
+                nil [1204 1380]))          
+    :file "State.cpp"
+    :pointmax 1381
+    :fsize 1479
+    :lastmodtime '(20406 8575)
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "Proxy.cpp"
+    :major-mode 'c++-mode
+    :tags 
+        '( ("iostream" include (:system-flag t) nil [1 20])
+            ("string" include (:system-flag t) nil [21 38])
+            ("ns" type (:type "namespace") nil [40 56])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [67 76])
+                    ("argv" variable
+                       (:pointer 1
+                        :dereference 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [77 90]))                  
+                :type "int")
+                nil [58 109]))          
+    :file "Proxy.cpp"
+    :pointmax 110
+    :fsize 120
+    :lastmodtime '(20402 22040)
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "Observer.cpp"
+    :major-mode 'c++-mode
+    :tags 
+        '( ("iostream" include (:system-flag t) nil [1 20])
+            ("string" include (:system-flag t) nil [21 38])
+            ("ns" type (:type "namespace") nil [40 56])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [67 76])
+                    ("argv" variable
+                       (:pointer 1
+                        :dereference 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [77 90]))                  
+                :type "int")
+                nil [58 109]))          
+    :file "Observer.cpp"
+    :pointmax 110
+    :fsize 120
+    :lastmodtime '(20402 21931)
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "Memento.cpp"
+    :major-mode 'c++-mode
+    :tags 
+        '( ("iostream" include (:system-flag t) nil [1 20])
+            ("string" include (:system-flag t) nil [21 38])
+            ("ns" type (:type "namespace") nil [40 56])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [67 76])
+                    ("argv" variable
+                       (:pointer 1
+                        :dereference 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [77 90]))                  
+                :type "int")
+                nil [58 109]))          
+    :file "Memento.cpp"
+    :pointmax 110
+    :fsize 120
+    :lastmodtime '(20402 21946)
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "Mediator.cpp"
+    :major-mode 'c++-mode
+    :tags 
+        '( ("iostream" include (:system-flag t) nil [1 20])
+            ("string" include (:system-flag t) nil [21 38])
+            ("ns" type (:type "namespace") nil [40 56])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [67 76])
+                    ("argv" variable
+                       (:pointer 1
+                        :dereference 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [77 90]))                  
+                :type "int")
+                nil [58 109]))          
+    :file "Mediator.cpp"
+    :pointmax 110
+    :fsize 120
+    :lastmodtime '(20402 21920)
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "Interpreter.cpp"
+    :major-mode 'c++-mode
+    :tags 
+        '( ("iostream" include (:system-flag t) nil [1 20])
+            ("string" include (:system-flag t) nil [21 38])
+            ("ns" type (:type "namespace") nil [40 56])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [67 76])
+                    ("argv" variable
+                       (:pointer 1
+                        :dereference 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [77 90]))                  
+                :type "int")
+                nil [58 109]))          
+    :file "Interpreter.cpp"
+    :pointmax 110
+    :fsize 120
+    :lastmodtime '(20402 22024)
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "for.cpp"
+    :major-mode 'c++-mode
+    :tags 
+        '( ("iostream" include (:system-flag t) nil [1 20])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [21 41])
+            ("main" function (:type "int") nil [43 160]))          
+    :file "for.cpp"
+    :pointmax 161
+    :fsize 175
+    :lastmodtime '(20384 4895)
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "Flyweight.cpp"
+    :major-mode 'c++-mode
+    :tags 
+        '( ("iostream" include (:system-flag t) nil [1 20])
+            ("string" include (:system-flag t) nil [21 38])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [40 60])
+            ("ns" type
+               (:members 
+                  ( ("BigChar" type
+                       (:members 
+                          ( ("public" label nil (reparse-symbol classsubparts) [93 100])
+                            ("BigChar" function
+                               (:constructor-flag t
+                                :type ("BigChar" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [103 117])
+                            ("BigChar" function
+                               (:destructor-flag t
+                                :typemodifiers ("virtual")
+                                :type "void")
+                                (reparse-symbol classsubparts) [120 143])
+                            ("print" function (:type "void") (reparse-symbol classsubparts) [146 164]))                          
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [77 167])
+                    ("BigCharFactory" type
+                       (:members 
+                          ( ("public" label nil (reparse-symbol classsubparts) [192 199])
+                            ("BigCharFactory" function
+                               (:constructor-flag t
+                                :type ("BigCharFactory" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [202 220])
+                            ("BigCharFactory" function
+                               (:destructor-flag t
+                                :typemodifiers ("virtual")
+                                :type "void")
+                                (reparse-symbol classsubparts) [223 250]))                          
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [169 253])
+                    ("BigString" type
+                       (:members 
+                          ( ("public" label nil (reparse-symbol classsubparts) [272 279])
+                            ("BigString" function
+                               (:constructor-flag t
+                                :type ("BigString" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [282 295])
+                            ("BigString" function
+                               (:destructor-flag t
+                                :typemodifiers ("virtual")
+                                :type "void")
+                                (reparse-symbol classsubparts) [298 320]))                          
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [254 323]))                  
+                :type "namespace")
+                nil [62 325])
+            ("main" function (:type "int") nil [326 352]))          
+    :file "Flyweight.cpp"
+    :pointmax 353
+    :fsize 385
+    :lastmodtime '(20402 21344)
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "Facade.cpp"
+    :major-mode 'c++-mode
+    :tags 
+        '( ("iostream" include (:system-flag t) nil [1 20])
+            ("string" include (:system-flag t) nil [21 38])
+            ("fstream" include (:system-flag t) nil [39 57])
+            ("sstream" include (:system-flag t) nil [58 76])
+            ("map" include (:system-flag t) nil [77 91])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [92 112])
+            ("ns" type
+               (:members 
+                  ( ("Database" type
+                       (:members 
+                          ( ("public" label nil (reparse-symbol classsubparts) [146 153])
+                            ("Database" function
+                               (:constructor-flag t
+                                :arguments 
+                                  ( ("dbName" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [165 184]))                                  
+                                :type ("Database" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [156 522])
+                            ("Database" function
+                               (:destructor-flag t
+                                :typemodifiers ("virtual")
+                                :type "void")
+                                (reparse-symbol classsubparts) [525 547])
+                            ("getProperties" function
+                               (:arguments 
+                                  ( ("user" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [577 594]))                                  
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [551 628])
+                            ("private" label nil (reparse-symbol classsubparts) [629 637])
+                            ("database_" variable (:type ("std::map" type
+                                 (:template-specifier 
+                                    ( ("std::string" type nil nil nil)
+                                      ("std::string" type nil nil nil))                                    
+                                  :type "class")
+                                  nil nil)) (reparse-symbol classsubparts) [640 685]))                          
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [129 688])
+                    ("HtmlWriter" type
+                       (:members 
+                          ( ("public" label nil (reparse-symbol classsubparts) [709 716])
+                            ("HtmlWriter" function
+                               (:constructor-flag t
+                                :arguments 
+                                  ( ("fileName" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [730 751]))                                  
+                                :type ("HtmlWriter" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [719 794])
+                            ("HtmlWriter" function
+                               (:destructor-flag t
+                                :typemodifiers ("virtual")
+                                :type "void")
+                                (reparse-symbol classsubparts) [797 831])
+                            ("paragraph" function
+                               (:arguments 
+                                  ( ("msg" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [849 865]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [834 937])
+                            ("link" function
+                               (:arguments 
+                                  ( ("href" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [951 968])
+                                    ("caption" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [969 989]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [941 1083])
+                            ("title" function
+                               (:arguments 
+                                  ( ("title" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1097 1115]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [1086 1272])
+                            ("mailto" function
+                               (:arguments 
+                                  ( ("address" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1287 1307])
+                                    ("user" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1308 1325]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [1275 1411])
+                            ("close" function (:type "void") (reparse-symbol classsubparts) [1414 1484])
+                            ("private" label nil (reparse-symbol classsubparts) [1485 1493])
+                            ("writer_" variable (:type ("std::ofstream" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1496 1518]))                          
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [690 1521])
+                    ("PageMaker" type
+                       (:members 
+                          ( ("public" label nil (reparse-symbol classsubparts) [1540 1547])
+                            ("PageMaker" function
+                               (:constructor-flag t
+                                :type ("PageMaker" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [1550 1567])
+                            ("PageMaker" function
+                               (:destructor-flag t
+                                :typemodifiers ("virtual")
+                                :type "void")
+                                (reparse-symbol classsubparts) [1570 1596])
+                            ("makeWelcomePage" function
+                               (:typemodifiers ("static")
+                                :arguments 
+                                  ( ("address" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1628 1648])
+                                    ("fileName" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [1649 1670]))                                  
+                                :type "void")
+                                (reparse-symbol classsubparts) [1600 1995]))                          
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [1522 1998]))                  
+                :type "namespace")
+                nil [114 2000])
+            ("main" function (:type "int") nil [2002 2102]))          
+    :file "Facade.cpp"
+    :pointmax 2103
+    :fsize 2207
+    :lastmodtime '(20405 6617)
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "Decorator.cpp"
+    :major-mode 'c++-mode
+    :tags 
+        '( ("iostream" include (:system-flag t) nil [1 20])
+            ("string" include (:system-flag t) nil [21 38])
+            ("ns" type
+               (:members 
+                  ( ("Display" type
+                       (:members 
+                          ( ("public" label nil (reparse-symbol classsubparts) [71 78])
+                            ("Display" function
+                               (:constructor-flag t
+                                :type ("Display" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [81 93])
+                            ("Display" function
+                               (:destructor-flag t
+                                :typemodifiers ("virtual")
+                                :type "void")
+                                (reparse-symbol classsubparts) [96 117])
+                            ("getRows" function
+                               (:pure-virtual-flag t
+                                :prototype-flag t
+                                :type "int")
+                                (reparse-symbol classsubparts) [121 139])
+                            ("getColumns" function
+                               (:pure-virtual-flag t
+                                :prototype-flag t
+                                :type "int")
+                                (reparse-symbol classsubparts) [142 163])
+                            ("getRowText" function
+                               (:pure-virtual-flag t
+                                :prototype-flag t
+                                :type ("std::string" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [166 195]))                          
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [55 199])
+                    ("StringDisplay" type
+                       (:superclasses 
+                          ( ("Display" type
+                               (:protection "public"
+                                :type "class")
+                                nil nil))                          
+                        :members 
+                          ( ("public" label nil (reparse-symbol classsubparts) [240 247])
+                            ("StringDisplay" function
+                               (:constructor-flag t
+                                :arguments 
+                                  ( ("str" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol arg-sub-list) [264 280]))                                  
+                                :type ("StringDisplay" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [250 302])
+                            ("StringDisplay" function
+                               (:destructor-flag t
+                                :typemodifiers ("virtual")
+                                :type "void")
+                                (reparse-symbol classsubparts) [306 337])
+                            ("getRows" function (:type "int") (reparse-symbol classsubparts) [341 378])
+                            ("getColumns" function (:type "int") (reparse-symbol classsubparts) [382 431])
+                            ("getRowText" function (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [435 487])
+                            ("private" label nil (reparse-symbol classsubparts) [488 496])
+                            ("string_" variable (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [499 519]))                          
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [201 522])
+                    ("SideBorder" type
+                       (:superclasses 
+                          ( ("Border" type
+                               (:protection "public"
+                                :type "class")
+                                nil nil))                          
+                        :members 
+                          ( ("public" label nil (reparse-symbol classsubparts) [703 710])
+                            ("SideBorder" function
+                               (:constructor-flag t
+                                :type ("SideBorder" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [713 728])
+                            ("SideBorder" function
+                               (:destructor-flag t
+                                :typemodifiers ("virtual")
+                                :type "void")
+                                (reparse-symbol classsubparts) [731 754])
+                            ("getRows" function (:type "int") (reparse-symbol classsubparts) [757 812])
+                            ("getColumns" function (:type "int") (reparse-symbol classsubparts) [816 877])
+                            ("getRowText" function (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [881 948])
+                            ("private" label nil (reparse-symbol classsubparts) [949 957])
+                            ("borderChar_" variable (:type "char") (reparse-symbol classsubparts) [960 977]))                          
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [668 980])
+                    ("FullBorder" type
+                       (:superclasses 
+                          ( ("Border" type
+                               (:protection "public"
+                                :type "class")
+                                nil nil))                          
+                        :members 
+                          ( ("public" label nil (reparse-symbol classsubparts) [1023 1030])
+                            ("FullBorder" function
+                               (:constructor-flag t
+                                :type ("FullBorder" type (:type "class") nil nil))
+                                (reparse-symbol classsubparts) [1035 1049])
+                            ("FullBorder" function
+                               (:destructor-flag t
+                                :typemodifiers ("virtual")
+                                :type "void")
+                                (reparse-symbol classsubparts) [1054 1078])
+                            ("getRows" function (:type "int") (reparse-symbol classsubparts) [1083 1142])
+                            ("getColumns" function (:type "int") (reparse-symbol classsubparts) [1148 1213])
+                            ("getRowText" function (:type ("std::string" type (:type "class") nil nil)) (reparse-symbol classsubparts) [1219 1290]))                          
+                        :type "class")
+                        (reparse-symbol namespacesubparts) [984 1295]))                  
+                :type "namespace")
+                nil [40 1297])
+            ("main" function (:type "int") nil [1299 1313]))          
+    :file "Decorator.cpp"
+    :pointmax 1314
+    :fsize 1407
+    :lastmodtime '(20402 20156)
+    :unmatched-syntax '((punctuation 665 . 666) (semantic-list 552 . 665) (symbol 544 . 551) (PUBLIC 537 . 543) (symbol 530 . 536) (CLASS 524 . 529))
+    )
+   (semanticdb-table "Command.cpp"
+    :major-mode 'c++-mode
+    :tags 
+        '( ("iostream" include (:system-flag t) nil [1 20])
+            ("string" include (:system-flag t) nil [21 38])
+            ("ns" type (:type "namespace") nil [40 56])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [67 76])
+                    ("argv" variable
+                       (:pointer 1
+                        :dereference 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [77 90]))                  
+                :type "int")
+                nil [58 109]))          
+    :file "Command.cpp"
+    :pointmax 110
+    :fsize 120
+    :lastmodtime '(20402 22001)
+    :unmatched-syntax 'nil
+    )
+   (semanticdb-table "ChainOfResponsibility.cpp"
+    :major-mode 'c++-mode
+    :tags 
+        '( ("iostream" include (:system-flag t) nil [1 20])
+            ("string" include (:system-flag t) nil [21 38])
+            ("ns" type (:type "namespace") nil [40 56])
+            ("main" function
+               (:arguments 
+                  ( ("argc" variable (:type "int") (reparse-symbol arg-sub-list) [67 76])
+                    ("argv" variable
+                       (:pointer 1
+                        :dereference 1
+                        :type "char")
+                        (reparse-symbol arg-sub-list) [77 90]))                  
+                :type "int")
+                nil [58 109]))          
+    :file "ChainOfResponsibility.cpp"
+    :pointmax 110
+    :fsize 120
+    :lastmodtime '(20402 21878)
+    :unmatched-syntax 'nil
+    )
+   )
+  :file "!drive_d!home!semantic.cache"
+  :semantic-tag-version "2.0pre7"
+  :semanticdb-version "2.0pre7"
+  )

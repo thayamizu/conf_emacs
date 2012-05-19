@@ -56,7 +56,7 @@
 ;;   %e  extention of file name       ( bin )
 (defvar smart-compile-alist
   '(("\\.c$"          . "gcc -O2 %f -lm -o %n")
-    ("\\.[Cc]+[Pp]*$" . "g++ -O2 %f -lm -o %n")
+    ("\\.[Cc]+[Pp]*$" . "g++-4 -O2 %f -lm -o %n")
     ("\\.java$"       . "javac %f")
     ("\\.f90$"        . "f90 %f -o %n")
     ("\\.[Ff]$"       . "f77 %f -o %n")
@@ -80,6 +80,7 @@
   '(("\\.c$"          . "./%n")
     ("\\.[Cc]+[Pp]*$" . "./%n")
     ("\\.java$"       . "java %n")
+    ("\\.pl"          . "perl %n")
     ("\\.php$"	      . "php %f")
     ("\\.m$"	      . "./%f")
     ("\\.scm"         . "./%f")

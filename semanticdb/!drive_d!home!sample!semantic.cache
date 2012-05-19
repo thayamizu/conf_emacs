@@ -1,0 +1,26 @@
+;; Object sample/
+;; SEMANTICDB Tags save file
+(semanticdb-project-database-file "sample/"
+  :tables (list 
+   (semanticdb-table "sample.cpp"
+    :major-mode 'c++-mode
+    :tags 
+        '( ("iostream" include (:system-flag t) nil [1 20])
+            ("std" using (:type ("std" type
+                 (:prototype t
+                  :type "namespace")
+                  nil nil)) nil [22 42])
+            ("function2" function (:type "void") nil [44 64])
+            ("function1" function (:type "void") nil [65 85])
+            ("main" function (:type "int") nil [87 173]))          
+    :file "sample.cpp"
+    :pointmax 175
+    :fsize 191
+    :lastmodtime '(20406 23696)
+    :unmatched-syntax 'nil
+    )
+   )
+  :file "!drive_d!home!sample!semantic.cache"
+  :semantic-tag-version "2.0pre7"
+  :semanticdb-version "2.0pre7"
+  )
