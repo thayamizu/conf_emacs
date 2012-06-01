@@ -1,6 +1,6 @@
 ;;;------------------------------------------------
 ;;;基本的な設定
-;;------------------------------------------------
+;;;------------------------------------------------
 ;;ロードパスの設定
 (add-to-list 'load-path "~/.emacs.d/lib/apel-10.8")
 (add-to-list 'load-path "~/.emacs.d/lib/film-1.14.9")
@@ -13,6 +13,13 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/org/contrib/lisp")
 (add-to-list 'load-path "~/.emacs.d/plugins/org/lisp")
 (add-to-list 'load-path "~/.emacs.d/plugins/csharp-mode")
+
+;;; 漢字コードの指定
+;;(set-default-coding-systems 'utf-8)
+;;(set-buffer-file-coding-system 'utf-8)
+;;(set-terminal-coding-system 'utf-8)
+:;(set-keyboard-coding-system 'utf-8)
+;;(prefer-coding-system 'utf-8)
 
 ;;バックアップファイルを作らない
 (setq backup-inhibited t) 
@@ -46,6 +53,15 @@
 (setq time-stamp-start "last updated : ")
 (setq time-stamp-format "%04y/%02m/%02d")
 (setq time-stamp-end " \\|$")
+
+;; (require 'time-stamp)
+;; (add-hook 'before-save-hook 'time-stamp)
+;; (setq time-stamp-active t)
+;; (setq time-stamp-start "Last modified: ")
+;; (setq time-stamp-format "%04y/%02m/%02d %02H :%02M :%02S")
+;; (setq time-stamp-end ">")
+;; (setq time-stamp-line-limit -4) ;; ファイルの後ろから４行以内を検索
+
 
 ;;;-----------------------------------------------
 ;;;auto-install.elによるEmacsLispの管理
@@ -111,50 +127,49 @@
 	       default-frame-alist))
       ;; ;;カラー設定
 (if window-system (progn
-		    ;; ;; ;; 文字の色を設定します。
-		    ;; (add-to-list 'default-frame-alist '(foreground-color . "dark gray"))
-		    ;; ;; ;; 背景色を設定します。
-		    ;; (add-to-list 'default-frame-alist '(background-color . "black"))
-		    
-		    ;; ;; ;; カーソルの色を設定します。
-		    ;; (add-to-list 'default-frame-alist '(cursor-color . "cyan"))
-		    ;; ;; ;; マウスポインタの色を設定します。
-		    ;; (add-to-list 'default-frame-alist '(mouse-color . "cyan"))
-		    ;; ;; ;; モードラインの文字の色を設定します。
-		    ;; (set-face-foreground 'modeline "black")
-		    ;; ;; ;; モードラインの背景色を設定します。
-		    ;; (set-face-background 'modeline "lightgray")
-		    ;; ;; ;; 選択中のリージョンの色を設定します。
-		    ;; (set-face-background 'region "darkcyan")
-		    ;; ;; ;; モードライン（アクティブでないバッファ）の文字色を設定します。
-		    ;; (set-face-foreground 'mode-line-inactive "gray30")
-		    ;; ;; ;; モードライン（アクティブでないバッファ）の背景色を設定します。
-		    ;; (set-face-background 'mode-line-inactive "gray85")
-		    ;; ;;画面を透過
-		    ;; (add-to-list 'default-frame-alist '(alpha . (80 40)))))
-
-		    ;; 文字の色を設定します
-		    (add-to-list 'default-frame-alist '(foreground-color . "gray10"))
+		    ;; ;; 文字の色を設定します。
+		    ;(add-to-list 'default-frame-alist '(foreground-color . "dark gray"))
 		    ;; ;; 背景色を設定します。
-		    (add-to-list 'default-frame-alist '(background-color . "white"))
-		    ;; ;; カーソルの色を設定します。
-		    (add-to-list 'default-frame-alist '(cursor-color . "SlateBlue2"))
-		    ;; ;;  マウスポインタの色を設定します。
-		    (add-to-list 'default-frame-alist '(mouse-color . "SlateBlue2"))
-		    ;; ;; モードラインの文字の色を。
-		    (set-face-foreground 'modeline "white")
-		    ;; ;; モードラインの背景色を設定します。
-		    (set-face-background 'modeline "MediumPurple2")
-		    ;; ;; 選択中のリージョンの色を設定します。
-		    (set-face-background 'region "LightSteelBlue1")
-		    ;; ;; モードライン（アクティブでないバッファ）の文字色を設定します。
-		    (set-face-foreground 'mode-line-inactive "gray30")
-		    ;; ;; モードライン（アクティブでないバッファ）の背景色を設定します。
-		    (set-face-background 'mode-line-inactive "gray85")
-		    ;; ;;画面を透過
-		    ;; ;(add-to-list 'default-frame-alist '(alpha . (90 70)))
-		     ))
+		    ;(add-to-list 'default-frame-alist '(background-color . "black"))
 		    
+		    ;; ;; カーソルの色を設定します。
+		    ;(add-to-list 'default-frame-alist '(cursor-color . "cyan"))
+		    ;; ;; マウスポインタの色を設定します。
+		    ;(add-to-list 'default-frame-alist '(mouse-color . "cyan"))
+		    ;; ;; モードラインの文字の色を設定します。
+		    ;(set-face-foreground 'modeline "black")
+		    ;; ;; モードラインの背景色を設定します。
+		    ;(;set-face-background 'modeline "lightgray")
+		    ;; ;; 選択中のリージョンの色を設定します。
+		    ;(;set-face-background 'region "darkcyan")
+		    ;; ;; モードライン（アクティブでないバッファ）の文字色を設定します。
+		    ;(;set-face-foreground 'mode-line-inactive "gray30")
+		    ;; ;; モードライン（アクティブでないバッファ）の背景色を設定します。
+		    ;(set-face-background 'mode-line-inactive "gray85")
+		    ;;画面を透過
+		   ; (add-to-list 'default-frame-alist '(alpha . (80 40)))))
+;; ;; 文字の色を設定します。
+								    ;; ;(add-to-list 'default-frame-alist '(foreground-color . "gray10"))
+;; ;; 背景色を設定します。
+(add-to-list 'default-frame-alist '(background-color . "white"))
+;; ;; カーソルの色を設定します。
+(add-to-list 'default-frame-alist '(cursor-color . "SlateBlue2"))
+;; ;; マウスポインタの色を設定します。
+(add-to-list 'default-frame-alist '(mouse-color . "SlateBlue2"))
+;; ;; モードラインの文字の色を。
+(set-face-foreground 'modeline "white")
+;; ;; モードラインの背景色を設定します。
+(set-face-background 'modeline "MediumPurple2")
+;; ;; 選択中のリージョンの色を設定します。
+(set-face-background 'region "LightSteelBlue1")
+;; ;; モードライン（アクティブでないバッファ）の文字色を設定します。
+(set-face-foreground 'mode-line-inactive "gray30")
+;; ;; モードライン（アクティブでないバッファ）の背景色を設定します。
+(set-face-background 'mode-line-inactive "gray85")
+;;画面を透過
+ (add-to-list 'default-frame-alist '(alpha . (90 70)))
+ )):
+
 ;; ;;;------------------------------------------------
 ;; ;;;フォント
 ;; ;;;------------------------------------------------
@@ -164,16 +179,53 @@
                    'japanese-jisx0208
                    '("Takaoゴシック" . "unicode-bmp"))
 
+
 ;; ;;;------------------------------------------------
 ;; ;;;言語設定
 ;; ;;;------------------------------------------------
 ;; ;;ロケールの設定
 (set-language-environment "Japanese")
 
+;; ;;;------------------------------------------------
+;; ;;;SKKをつかって入力する
+;; ;;;------------------------------------------------
+;; ;(require 'skk)
+;; ;(setq default-input-method "japanese-skk")
+;; ;(define-key global-map [zenkaku-hankaku] 'toggle-input-method)
+
+;; ;(global-set-key "\C-xt" 'skk-tutorial)
+;; ;(autoload 'skk-mode "skk" nil t)
+;; ;(autoload 'skk-tutorial "skk-tut" nil t)
+;; ;(autoload 'skk-check-jisyo "skk-tools" nil t)
+;; ;(autoload 'skk-merge "skk-tools" nil t)
+;; ;(autoload 'skk-diff "skk-tools" nil t)
+;; ;;;; □ "「"を入力したら"」"も自動で挿入
+;; ;(setq skk-auto-insert-paren t)
+;; ;;;; □ 句読点は , . を使う
+;; ;(setq skk-kuten-touten-alist
+;; ; '(
+;; ; (jp . ("。" . "、" ))
+;; ; (en . ("．" . "，"))
+;; ; ))
+;; ;;;;; □ jp にすると「。、」を使います
+;; ;(setq-default skk-kutouten-type 'jp)
+;; ;;;;; □ @で挿入する日付表示を半角に
+;; ;(setq skk-number-style nil)
+;; ;;;;; □ 変換のときEnterを押しても確定のみで改行しない。
+;; ;(setq skk-egg-like-newline t)
 
 ;; ;;;------------------------------------------------
 ;; ;;;メニュー
 ;; ;;;------------------------------------------------
+;; ;;メニューの日本語化
+;; ;;文字化けするので却下
+;; ;(if (equal (substring (concat (getenv "LANG") "__") 0 2) "ja")
+;; ; (require 'menu-tree))
+;; ;(setq tree-menu-coding-system 'utf-8)
+
+;; ;;ツールバーメニューを消す
+;; ;(tool-bar-mode nil)
+
 ;; ;;最近使ったファイルを表示
 (require 'recentf)
 (recentf-mode t)
@@ -218,7 +270,7 @@
     (bookmark-save))
   (add-hook 'bookmark-after-jump-hook 'bookmark-arrange-latest-top))
 
-;; ;;使わないバッファを消す(不要)
+;; ;;使わないバッファを消す
 ;; ;(require 'tempbuf)
 ;; ;;ファイルを開いたら自動的にtempbufを有効にする
 ;; ;(add-hook 'find-file-hooks 'turn-on-tempbuf-mode)
@@ -233,7 +285,7 @@
 (auto-image-file-mode t)
 (setq thumbs-thumbsdir
        (expand-file-name "~/.emacs-thumbs"))
-(setq thumbs-temp-dir (expand-file-name "~/tmp"))
+ (setq thumbs-temp-dir (expand-file-name "~/tmp"))
 
 
 
@@ -251,9 +303,20 @@
 ;; ;;wdired
 (require 'wdired)
 
+;; powerline.el
+
+
 ;; ;;;------------------------------------------------
-;; ;;;revive.elを使って前回起動時の状態も復元可能
+;; ;;;windows.elとrevive.elを使ってフレームを管理
+;; ;;;前回起動時の状態も復元可能
 ;; ;;;------------------------------------------------
+
+;; ;; windows.el
+;(require 'windows)
+;(win:startup-with-window)
+;(define-key ctl-x-map "C" 'see-you-again)
+
+;; ;; revive.el
 (autoload 'save-current-configuration "revive" "Save status" t)
 (autoload 'resume "revive" "Resume Emacs" t)
 (autoload 'wipe "revive" "Wipe emacs" t)
@@ -290,13 +353,16 @@ screen-list " ")))
 (require 'anything-startup)
 
 ;; ;;yasnippet
-(require 'yasnippet)
 (require 'yasnippet-config)
 (require 'anything-c-yasnippet)
 (yas/setup "~/.emacs.d/plugins")
 
 ;; ;; メニューは使う
-(setq yas/use-menu t)
+;(setq yas/use-menu t)
+
+;; ;; トリガはSPC, 次の候補への移動はTAB
+;(setq yas/trigger-key (kbd "TAB TAB"))
+;(setq yas/next-field-key (kbd "TAB"))
 
 ;; ;;autoinsertによるテンプレート挿入
 ;; ;; ;;ref ひげぽん
@@ -334,69 +400,19 @@ screen-list " ")))
 ;; ;;;------------------------------------------------
 ;; ;;;auto-completeによる自動補完
 ;; ;;;------------------------------------------------
+(require 'auto-complete)
 (require 'auto-complete-config)
-(require 'auto-complete-yasnippet)
-;;デフォルト設定を使う
-(ac-config-default)
-;;辞書の場所を教える
-(add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
-;;常にauto-completeを有効にする
-(global-auto-complete-mode t);
-;;自動で補完開始
-(setq ac-auto-start t)
-;;トリガーキーはタブ
-(ac-set-trigger-key "TAB")
-;;ソース
-(setq ac-sources '(
-		   ac-source-abbrev 
-		   ac-source-dictionary 
-		   ac-source-words-in-same-mode-buffers
-		   ac-source-yasnippet))
-
-;; ;(require 'auto-complete-clang)
-;; (defun my-ac-cc-mode-setup ()
-;;   ;;tなら自動で補完画面がでる．nilなら補完キーによって出る
-;;  ; (setq ac-auto-start 3)
-;;   (setq ac-clang-prefix-header "~/.emacs.d/ac-dict/stdafx.pch")
-;;   (setq ac-clang-flags '("-w" "-ferror-limit" "1"))
-;;   (setq ac-sources '(
-;; 		     ac-source-clang
-;; 		     ac-source-yasnippet  
-;; 		     ac-source-gtags)))
-
-
-;; (defun my-ac-config ()
-;;   (global-set-key "\M-/" 'ac-start)
-;;   ;; C-n/C-p で候補を選択
-;;   (define-key ac-complete-mode-map "\C-n" 'ac-next)
-;;   (define-key ac-complete-mode-map "\C-p" 'ac-previous)
-  
-;;   (setq-default ac-sources '(ac-source-abbrev 
-;;    			     ac-source-dictionary 
-;;    			     ac-source-yasnippet
-;;    			     ac-source-words-in-same-mode-buffers))
-;;   (add-hook 'c++-mode-hook 'my-ac-cc-mode-setup)
-;;   (add-hook 'emacs-lisp-mode-hook 'ac-emacs-lisp-mode-setup)
-;;   (add-hook 'c-mode-common-hook 'my-ac-cc-mode-setup)
-;;   (add-hook 'ruby-mode-hook 'ac-ruby-mode-setup)
-;;   (add-hook 'auto-complete-mode-hook 'ac-common-setup)
-;;   (global-auto-complete-mode t))
-
-;; (my-ac-config)
-
+;(global-auto-complete-mode t)
+;(add-to-list 'ac-dictionary-directories (concat ac-dir "ac-dict/"))
 
 ;; ;;;------------------------------------------------
 ;; ;;;辞書とスペル
 ;; ;;;------------------------------------------------
-;; http://www4.kcn.ne.jp/~boochang/emacs/ispell.html 
 ;; ;;辞書ファイル
-;; ;; コマンドの設定
-;; (setq ispell-program-name "aspell")	; ispell の代わりに aspell を使う
-;; (setq ispell-grep-command "grep")	; デフォルトの egrep が Cygwin ではシンボリックリンク
-;; 					; なので、Meadow から起動できない
-;; ;; 日本語ファイル中の英単語スペルチェックを可能にする
-;; (eval-after-load "ispell"
-;;   '(add-to-list 'ispell-skip-region-alist '("[^\000-\377]")))
+
+;; ;;辞書補完
+
+;; ;;スペルチェック
 
 
 ;; ;;;-----------------------------------------------
@@ -426,10 +442,9 @@ screen-list " ")))
             (lambda ()(local-set-key "\C-cc" 'smart-compile))))
 
 ;;;configure cc-mode-common
- (add-hook 'cc-mode-common-hook
-	   '(lambda ()
-	      (flymake-mode t)
-	    ))
+ (add-hook 'c++-mode-hook
+          '(lambda ()
+ 	     (flymake-mode t)))
 
 ;;cperl-mode
 ;; ;;ref. http://www.bookshelf.jp/soft/meadow_41.html#SEC619
@@ -645,9 +660,8 @@ screen-list " ")))
 ;; Windows 固有の設定
 ;;-----------------------------------------------
 ;;cygwin-mount
-(when (eq system-type 'windows-nt)
-  (require 'cygwin-mount)
-  (cygwin-mount-activate))
+(require 'cygwin-mount)
+(cygwin-mount-activate)
 
 ;;-----------------------------------------------
 ;; HOWM　ウィキって略すな！
@@ -810,13 +824,7 @@ screen-list " ")))
 ;(resume)
 
 
-;;サーバー起動
-(server-start) 
-
-
-;; ;;;-----------------------------------------------
-;; ;;;POWERLINE
-;; ;;;-----------------------------------------------
+;; powerline.el
 (defun arrow-right-xpm (color1 color2)
   "Return an XPM right arrow string representing."
   (format "/* XPM */
@@ -913,4 +921,3 @@ static char * arrow_right[] = {
 (set-face-attribute 'mode-line-inactive nil
                     :foreground "#ffff"
                     :background color4)
-
