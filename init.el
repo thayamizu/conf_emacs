@@ -13,6 +13,7 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/org/contrib/lisp")
 (add-to-list 'load-path "~/.emacs.d/plugins/org/lisp")
 (add-to-list 'load-path "~/.emacs.d/plugins/csharp-mode")
+(add-to-list 'load-path "~/.emacs.d/plugins/Mew")
 
 ;;バックアップファイルを作らない
 (setq backup-inhibited t) 
@@ -158,11 +159,11 @@
 ;; ;;;------------------------------------------------
 ;; ;;;フォント
 ;; ;;;------------------------------------------------
-(set-default-font "Inconsolata-18")
-(set-face-font 'variable-pitch "Inconsolata-18")
-(set-fontset-font (frame-parameter nil 'font)
-                   'japanese-jisx0208
-                   '("Takaoゴシック" . "unicode-bmp"))
+;(set-default-font "Inconsolata-18")
+;(set-face-font 'variable-pitch "Inconsolata-18")
+;(set-fontset-font (frame-parameter nil 'font)
+;                  'japanese-jisx0208
+;                  '("Takaoゴシック" . "unicode-bmp"))
 
 ;; ;;;------------------------------------------------
 ;; ;;;言語設定
@@ -289,13 +290,13 @@ screen-list " ")))
 ;; ;;;------------------------------------------------
 (require 'anything-startup)
 
-;; ;;yasnippet
+;; ;; ;;yasnippet
 (require 'yasnippet)
 (require 'yasnippet-config)
 (require 'anything-c-yasnippet)
 (yas/setup "~/.emacs.d/plugins")
 
-;; ;; メニューは使う
+;; メニューは使う
 (setq yas/use-menu t)
 
 ;; ;;autoinsertによるテンプレート挿入
@@ -345,11 +346,12 @@ screen-list " ")))
 ;;自動で補完開始
 (setq ac-auto-start t)
 ;;トリガーキーはタブ
-(ac-set-trigger-key "TAB")
+;(ac-set-trigger-key "TAB")
 ;;ソース
 (setq ac-sources '(
 		   ac-source-abbrev 
 		   ac-source-dictionary 
+		   ac-source-words-in-buffer
 		   ac-source-words-in-same-mode-buffers
 		   ac-source-yasnippet))
 
