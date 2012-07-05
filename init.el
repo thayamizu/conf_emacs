@@ -159,11 +159,11 @@
 ;; ;;;------------------------------------------------
 ;; ;;;フォント
 ;; ;;;------------------------------------------------
-;(set-default-font "Inconsolata-18")
-;(set-face-font 'variable-pitch "Inconsolata-18")
-;(set-fontset-font (frame-parameter nil 'font)
-;                  'japanese-jisx0208
-;                  '("Takaoゴシック" . "unicode-bmp"))
+(set-default-font "Inconsolata-14")
+(set-face-font 'variable-pitch "Inconsolata-14")
+(set-fontset-font (frame-parameter nil 'font)
+                  'japanese-jisx0208
+                  '("Takaoゴシック" . "unicode-bmp"))
 
 ;; ;;;------------------------------------------------
 ;; ;;;言語設定
@@ -511,7 +511,6 @@ screen-list " ")))
 (autoload 'css-mode "css-mode")
 (setq auto-mode-alist (cons '("\\.css$" . css-mode) auto-mode-alist))
 
-
 ;;gdb-mode
 (setq gdb-many-windows t)
 (setq gdb-use-separate-io-buffer t) ; "IO buffer" が必要ない場合は  nil で
@@ -620,15 +619,18 @@ screen-list " ")))
 ;;基本設定
 (require 'org)
 
-;;見出し
-
 ;;メモをとる
-
+;; org-rememberを使う
+(org-remember-insinuate)
+;; org-rememberのテンプレート
+(setq org-remember-templates
+      '(("Note" ?n "* %?\n  %i\n  %a" nil "Tasks")
+	("Todo" ?t "* TODO %?\n  %i\n  %a" nil "Tasks")))
 ;;Todo
- (setq org-todo-keywords '("TODO" "Wait" "DONE")
-      org-todo-interpretation 'sequence)
-
-;;カレンダー
+(setq org-todo-keywords
+      '((sequence "TODO(t)" "WAIT(w)" "|" "DONE(d)" "SOMEDAY(s)")))
+;; DONEの時刻を記録
+(setq org-log-done 'time)
 
 ;;tex+pdf
 (setq org-export-latex-coding-system 'utf-8)
