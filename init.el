@@ -1,7 +1,7 @@
 ;;;------------------------------------------------
-;;;$B4pK\E*$J@_Dj(B
+;;;Šî–{“I‚Èİ’è
 ;;------------------------------------------------
-;;$B%m!<%I%Q%9$N@_Dj(B
+;;ƒ[ƒhƒpƒX‚Ìİ’è
 (add-to-list 'load-path "~/.emacs.d/lib/apel-10.8")
 (add-to-list 'load-path "~/.emacs.d/lib/film-1.14.9")
 (add-to-list 'load-path "~/.emacs.d/lib/semi-1.14.6")
@@ -15,32 +15,33 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/csharp-mode")
 (add-to-list 'load-path "~/.emacs.d/plugins/Mew")
 
-;;$B%P%C%/%"%C%W%U%!%$%k$r:n$i$J$$(B
+
+;;ƒoƒbƒNƒAƒbƒvƒtƒ@ƒCƒ‹‚ğì‚ç‚È‚¢
 (setq backup-inhibited t) 
 
-;; $B5/F0;~$K(B splash-screen $B$rI=<($7$J$$$h$&$K$9$k!#(B
+;; ‹N“®‚É splash-screen ‚ğ•\¦‚µ‚È‚¢‚æ‚¤‚É‚·‚éB
 ;; emacs --no-splash
-;; M-x display-splash-screen $B$GI=<(!#(B
+;; M-x display-splash-screen ‚Å•\¦B
 (setq inhibit-startup-message t) 
 
-;;$B<+F0J]B8(B
+;;©“®•Û‘¶
 (add-hook 'after-save-hook
           'executable-make-buffer-file-executable-if-script-p)
 
-;;$B%(%i!<;~$K%P%C%/%H%l!<%9$r3+$/(B
+;;ƒGƒ‰[‚ÉƒoƒbƒNƒgƒŒ[ƒX‚ğŠJ‚­
 (setq debug-on-error nil)
 
-;;$B%S!<%W$r@Z$k(B
+;;ƒr[ƒv‚ğØ‚é
 (setq ring-bell-function 'ignore)
 
 ;;info+
 (eval-after-load "info" '(require 'info+))
 
-;;browse-url $B$N@_Dj(B
+;;browse-url ‚Ìİ’è
 (global-set-key [S-mouse-2] 'browse-url-at-mouse)
 
 
-;;$B%?%$%`%9%?%s%W(B
+;;ƒ^ƒCƒ€ƒXƒ^ƒ“ƒv
 (require 'time-stamp)
 (add-hook 'before-save-hook 'time-stamp)
 (setq time-stamp-active t)
@@ -48,22 +49,26 @@
 (setq time-stamp-format "%04y/%02m/%02d")
 (setq time-stamp-end " \\|$")
 
+(setq default-input-method "W32-IME")
+(setq-default w32-ime-mode-line-state-indicator "[--]") ;; ‚¨‚±‚Ì‚İ‚Å
+(setq w32-ime-mode-line-state-indicator-list '("[--]" "[‚ ]" "[--]")) ;; ‚¨‚±‚Ì‚İ‚Å
+(w32-ime-initialize) 
 ;;;-----------------------------------------------
-;;;auto-install.el$B$K$h$k(BEmacsLisp$B$N4IM}(B
+;;;auto-install.el‚É‚æ‚éEmacsLisp‚ÌŠÇ—
 ;;;-----------------------------------------------
-;;auto-install$B$K$h$C$F%$%s%9%H!<%k$5$l$k(BEmacs Lisp$B$r%m!<%I%Q%9$K4^$a$k(B
-;;auto-install$B$r%m!<%I(B
+;;auto-install‚É‚æ‚Á‚ÄƒCƒ“ƒXƒg[ƒ‹‚³‚ê‚éEmacs Lisp‚ğƒ[ƒhƒpƒX‚ÉŠÜ‚ß‚é
+;;auto-install‚ğƒ[ƒh
 (add-to-list 'load-path "~/.emacs.d/auto-install/") 
 (require 'auto-install)                             
 (setq auto-install-directory "~/.emacs.d/auto-install/")
 
-;;$B5/F0;~$K(BEmacsWiki$B$N%Z!<%8L>$rJd408uJd$K4^$a$k(B
+;;‹N“®‚ÉEmacsWiki‚Ìƒy[ƒW–¼‚ğ•âŠ®Œó•â‚ÉŠÜ‚ß‚é
 (auto-install-update-emacswiki-package-name t)
 
-;;install-elisp$B$H8_49$K$9$k(B
+;;install-elisp‚ÆŒİŠ·‚É‚·‚é
 (auto-install-compatibility-setup)
 
-;;ediff$B4XO"$N%P%C%U%!$r0l$D$K$^$H$a$k(B
+;;ediffŠÖ˜A‚Ìƒoƒbƒtƒ@‚ğˆê‚Â‚É‚Ü‚Æ‚ß‚é
 (setq ediff-window-setup-function 
       'ediff-setup-windows-plain)
 
@@ -81,26 +86,26 @@
   (package-initialize))
 
 ;;;------------------------------------------------
-;;;$B8+$?L\(B
+;;;Œ©‚½–Ú
 ;;;------------------------------------------------
-;;$B9THV9f$NI=<((B
-(require 'linum)          ;linum-mode$B$r%m!<%I(B
+;;s”Ô†‚Ì•\¦
+(require 'linum)          ;linum-mode‚ğƒ[ƒh
 (global-linum-mode t)    
 (setq linum-format "%5d")
  
-;; ;; $B9T4V;XDj(B
+;; ;; sŠÔw’è
 (set-default 'line-spacing 2)
 
-;; ;;$B%U%)%s%H%m%C%/%b!<%I$rM-8z$K$9(B
+;; ;;ƒtƒHƒ“ƒgƒƒbƒNƒ‚[ƒh‚ğ—LŒø‚É‚·
 (global-font-lock-mode t)
 
-;; ;;$B%+%l%s%H9T$r%O%$%i%$%H$9$k(B
+;; ;;ƒJƒŒƒ“ƒgs‚ğƒnƒCƒ‰ƒCƒg‚·‚é
  (global-hl-line-mode t)
 
-;; ;;$B%b!<%I9T$K>pJs$rDI2C$9$k(B
+;; ;;ƒ‚[ƒhs‚Éî•ñ‚ğ’Ç‰Á‚·‚é
 (display-time-mode t)
  (line-number-mode t)
-;; ;;$B%&%$%s%I%&$N=i4|CM(B
+;; ;;ƒEƒCƒ“ƒhƒE‚Ì‰Šú’l
 (setq default-frame-alist
       (append (list
 	       '(width . 80)
@@ -110,107 +115,108 @@
 		)
 	       
 	       default-frame-alist))
-      ;; ;;$B%+%i!<@_Dj(B
+      ;; ;;ƒJƒ‰[İ’è
 (if window-system (progn
-		    ;; ;; ;; $BJ8;z$N?'$r@_Dj$7$^$9!#(B
+		    ;; ;; ;; •¶š‚ÌF‚ğİ’è‚µ‚Ü‚·B
 		    ;; (add-to-list 'default-frame-alist '(foreground-color . "dark gray"))
-		    ;; ;; ;; $BGX7J?'$r@_Dj$7$^$9!#(B
+		    ;; ;; ;; ”wŒiF‚ğİ’è‚µ‚Ü‚·B
 		    ;; (add-to-list 'default-frame-alist '(background-color . "black"))
 		    
-		    ;; ;; ;; $B%+!<%=%k$N?'$r@_Dj$7$^$9!#(B
+		    ;; ;; ;; ƒJ[ƒ\ƒ‹‚ÌF‚ğİ’è‚µ‚Ü‚·B
 		    ;; (add-to-list 'default-frame-alist '(cursor-color . "cyan"))
-		    ;; ;; ;; $B%^%&%9%]%$%s%?$N?'$r@_Dj$7$^$9!#(B
+		    ;; ;; ;; ƒ}ƒEƒXƒ|ƒCƒ“ƒ^‚ÌF‚ğİ’è‚µ‚Ü‚·B
 		    ;; (add-to-list 'default-frame-alist '(mouse-color . "cyan"))
-		    ;; ;; ;; $B%b!<%I%i%$%s$NJ8;z$N?'$r@_Dj$7$^$9!#(B
+		    ;; ;; ;; ƒ‚[ƒhƒ‰ƒCƒ“‚Ì•¶š‚ÌF‚ğİ’è‚µ‚Ü‚·B
 		    ;; (set-face-foreground 'modeline "black")
-		    ;; ;; ;; $B%b!<%I%i%$%s$NGX7J?'$r@_Dj$7$^$9!#(B
+		    ;; ;; ;; ƒ‚[ƒhƒ‰ƒCƒ“‚Ì”wŒiF‚ğİ’è‚µ‚Ü‚·B
 		    ;; (set-face-background 'modeline "lightgray")
-		    ;; ;; ;; $BA*BrCf$N%j!<%8%g%s$N?'$r@_Dj$7$^$9!#(B
+		    ;; ;; ;; ‘I‘ğ’†‚ÌƒŠ[ƒWƒ‡ƒ“‚ÌF‚ğİ’è‚µ‚Ü‚·B
 		    ;; (set-face-background 'region "darkcyan")
-		    ;; ;; ;; $B%b!<%I%i%$%s!J%"%/%F%#%V$G$J$$%P%C%U%!!K$NJ8;z?'$r@_Dj$7$^$9!#(B
+		    ;; ;; ;; ƒ‚[ƒhƒ‰ƒCƒ“iƒAƒNƒeƒBƒu‚Å‚È‚¢ƒoƒbƒtƒ@j‚Ì•¶šF‚ğİ’è‚µ‚Ü‚·B
 		    ;; (set-face-foreground 'mode-line-inactive "gray30")
-		    ;; ;; ;; $B%b!<%I%i%$%s!J%"%/%F%#%V$G$J$$%P%C%U%!!K$NGX7J?'$r@_Dj$7$^$9!#(B
+		    ;; ;; ;; ƒ‚[ƒhƒ‰ƒCƒ“iƒAƒNƒeƒBƒu‚Å‚È‚¢ƒoƒbƒtƒ@j‚Ì”wŒiF‚ğİ’è‚µ‚Ü‚·B
 		    ;; (set-face-background 'mode-line-inactive "gray85")
-		    ;; ;;$B2hLL$rF)2a(B
+		    ;; ;;‰æ–Ê‚ğ“§‰ß
 		    ;; (add-to-list 'default-frame-alist '(alpha . (80 40)))))
 
-		    ;; $BJ8;z$N?'$r@_Dj$7$^$9(B
+		    ;; •¶š‚ÌF‚ğİ’è‚µ‚Ü‚·
 		    (add-to-list 'default-frame-alist '(foreground-color . "gray10"))
-		    ;; ;; $BGX7J?'$r@_Dj$7$^$9!#(B
+		    ;; ;; ”wŒiF‚ğİ’è‚µ‚Ü‚·B
 		    (add-to-list 'default-frame-alist '(background-color . "white"))
-		    ;; ;; $B%+!<%=%k$N?'$r@_Dj$7$^$9!#(B
+		    ;; ;; ƒJ[ƒ\ƒ‹‚ÌF‚ğİ’è‚µ‚Ü‚·B
 		    (add-to-list 'default-frame-alist '(cursor-color . "SlateBlue2"))
-		    ;; ;;  $B%^%&%9%]%$%s%?$N?'$r@_Dj$7$^$9!#(B
+		    ;; ;;  ƒ}ƒEƒXƒ|ƒCƒ“ƒ^‚ÌF‚ğİ’è‚µ‚Ü‚·B
 		    (add-to-list 'default-frame-alist '(mouse-color . "SlateBlue2"))
-		    ;; ;; $B%b!<%I%i%$%s$NJ8;z$N?'$r!#(B
+		    ;; ;; ƒ‚[ƒhƒ‰ƒCƒ“‚Ì•¶š‚ÌF‚ğB
 		    (set-face-foreground 'modeline "white")
-		    ;; ;; $B%b!<%I%i%$%s$NGX7J?'$r@_Dj$7$^$9!#(B
+		    ;; ;; ƒ‚[ƒhƒ‰ƒCƒ“‚Ì”wŒiF‚ğİ’è‚µ‚Ü‚·B
 		    (set-face-background 'modeline "MediumPurple2")
-		    ;; ;; $BA*BrCf$N%j!<%8%g%s$N?'$r@_Dj$7$^$9!#(B
+		    ;; ;; ‘I‘ğ’†‚ÌƒŠ[ƒWƒ‡ƒ“‚ÌF‚ğİ’è‚µ‚Ü‚·B
 		    (set-face-background 'region "LightSteelBlue1")
-		    ;; ;; $B%b!<%I%i%$%s!J%"%/%F%#%V$G$J$$%P%C%U%!!K$NJ8;z?'$r@_Dj$7$^$9!#(B
+		    ;; ;; ƒ‚[ƒhƒ‰ƒCƒ“iƒAƒNƒeƒBƒu‚Å‚È‚¢ƒoƒbƒtƒ@j‚Ì•¶šF‚ğİ’è‚µ‚Ü‚·B
 		    (set-face-foreground 'mode-line-inactive "gray30")
-		    ;; ;; $B%b!<%I%i%$%s!J%"%/%F%#%V$G$J$$%P%C%U%!!K$NGX7J?'$r@_Dj$7$^$9!#(B
+		    ;; ;; ƒ‚[ƒhƒ‰ƒCƒ“iƒAƒNƒeƒBƒu‚Å‚È‚¢ƒoƒbƒtƒ@j‚Ì”wŒiF‚ğİ’è‚µ‚Ü‚·B
 		    (set-face-background 'mode-line-inactive "gray85")
-		    ;; ;;$B2hLL$rF)2a(B
+		    ;; ;;‰æ–Ê‚ğ“§‰ß
 		    ;; ;(add-to-list 'default-frame-alist '(alpha . (90 70)))
 		     ))
 		    
 ;; ;;;------------------------------------------------
-;; ;;;$B%U%)%s%H(B
+;; ;;;ƒtƒHƒ“ƒg
 ;; ;;;------------------------------------------------
 (set-default-font "Inconsolata-14")
 (set-face-font 'variable-pitch "Inconsolata-14")
 (set-fontset-font (frame-parameter nil 'font)
                   'japanese-jisx0208
-                  '("Takao$B%4%7%C%/(B" . "unicode-bmp"))
+                  '("TakaoƒSƒVƒbƒN" . "unicode-bmp"))
 
 ;; ;;;------------------------------------------------
-;; ;;;$B8@8l@_Dj(B
+;; ;;;Œ¾Œêİ’è
 ;; ;;;------------------------------------------------
-;; ;;$B%m%1!<%k$N@_Dj(B
+;; ;;ƒƒP[ƒ‹‚Ìİ’è
 (set-language-environment "Japanese")
+(global-set-key "\C-o" 'toggle-input-method)
 
 
 ;; ;;;------------------------------------------------
-;; ;;;$B%a%K%e!<(B
+;; ;;;ƒƒjƒ…[
 ;; ;;;------------------------------------------------
-;; ;;$B:G6a;H$C$?%U%!%$%k$rI=<((B
+;; ;;Å‹ßg‚Á‚½ƒtƒ@ƒCƒ‹‚ğ•\¦
 (require 'recentf)
 (recentf-mode t)
 
-;; ;;$B%U%l!<%`L>$r%P%C%U%!L>$K$9$k(B
+;; ;;ƒtƒŒ[ƒ€–¼‚ğƒoƒbƒtƒ@–¼‚É‚·‚é
 (setq frame-title-format "%b")
 
 ;; ;;;------------------------------------------------
-;; ;;;$B%P%C%U%!$H%U%!%$%k(B
+;; ;;;ƒoƒbƒtƒ@‚Æƒtƒ@ƒCƒ‹
 ;; ;;;------------------------------------------------
 ;; ;;sr-speedbar
 (require 'sr-speedbar)
 (setq sr-speedbar-right-side nil)
 
-;; ;;ffap$B8=:_0LCV$N%U%!%$%k!&#U#R#L$r3+$/(B
+;; ;;ffapŒ»İˆÊ’u‚Ìƒtƒ@ƒCƒ‹E‚t‚q‚k‚ğŠJ‚­
 (ffap-bindings)
 
-;; ;;$B%U%!%$%kL>$,Ho$C$?;~$K%P%C%U%!L>$r$o$+$j$d$9$/$9$k(B
+;; ;;ƒtƒ@ƒCƒ‹–¼‚ª”í‚Á‚½‚Éƒoƒbƒtƒ@–¼‚ğ‚í‚©‚è‚â‚·‚­‚·‚é
 (require 'uniquify)
 (setq uniquify-buffer-name-style 'post-forward-angle-brackets)
 (setq uniquify-ignore-buffers-re "*[^*]+*")
 
-;; ;;$B%P%C%U%!@ZBX$r6/2=(B
+;; ;;ƒoƒbƒtƒ@Ø‘Ö‚ğ‹­‰»
 (iswitchb-mode t)
 
-;; ;;$B%P%C%U%!FI$_<h$j4X?t$r(Biswitchb$B$K$9$k(B
+;; ;;ƒoƒbƒtƒ@“Ç‚İæ‚èŠÖ”‚ğiswitchb‚É‚·‚é
 (setq read-buffer-function 'iswitchb-read-buffer)
-;; ;;$B@55,I=8=$r;H$o$J$$(B
+;; ;;³‹K•\Œ»‚ğg‚í‚È‚¢
 (setq iswitchb-regexp nil)
-;; ;;$B?7$7$$%P%C%U%!$r$D$/$k$+$I$&$+$rJ9$+$J$$(B
+;; ;;V‚µ‚¢ƒoƒbƒtƒ@‚ğ‚Â‚­‚é‚©‚Ç‚¤‚©‚ğ•·‚©‚È‚¢
 (setq iswitchb-prompt-newbuffer nil)
 
-;; ;;$B%U%!%$%k$NFCDj0LCV$r%V%C%/%^!<%/$9$k(B
-;; ;;$B%V%C%/%^!<%/$rJQ99$7$?$iB(J]B8(B
+;; ;;ƒtƒ@ƒCƒ‹‚Ì“Á’èˆÊ’u‚ğƒuƒbƒNƒ}[ƒN‚·‚é
+;; ;;ƒuƒbƒNƒ}[ƒN‚ğ•ÏX‚µ‚½‚ç‘¦•Û‘¶
 (setq bookmark-save-flag t)
-;; ;;$BD6@0M}K!(B
+;; ;;’´®—–@
 (progn
   (setq bookmark-sort-flag nil)
   (defun bookmark-arrange-latest-top ()
@@ -219,18 +225,18 @@
     (bookmark-save))
   (add-hook 'bookmark-after-jump-hook 'bookmark-arrange-latest-top))
 
-;; ;;$B;H$o$J$$%P%C%U%!$r>C$9(B($BITMW(B)
+;; ;;g‚í‚È‚¢ƒoƒbƒtƒ@‚ğÁ‚·(•s—v)
 ;; ;(require 'tempbuf)
-;; ;;$B%U%!%$%k$r3+$$$?$i<+F0E*$K(Btempbuf$B$rM-8z$K$9$k(B
+;; ;;ƒtƒ@ƒCƒ‹‚ğŠJ‚¢‚½‚ç©“®“I‚Étempbuf‚ğ—LŒø‚É‚·‚é
 ;; ;(add-hook 'find-file-hooks 'turn-on-tempbuf-mode)
-;; ;;dired$B$K$?$$$7$F$b!"(Btempbuf$B$rM-8z$K$9$k(B
+;; ;;dired‚É‚½‚¢‚µ‚Ä‚àAtempbuf‚ğ—LŒø‚É‚·‚é
 ;; ;(add-hook 'dired-mode-hook 'turn-on-tempbuf-mode)
 
-;; ;;$B%U%!%$%k$N<+F0J]B8(B
+;; ;;ƒtƒ@ƒCƒ‹‚Ì©“®•Û‘¶
 (require 'auto-save-buffers)
 (run-with-idle-timer 2 t 'auto-save-buffers)
 
-;; ;;Emacs$B$+$i2hA|$r3+$/(B open-image
+;; ;;Emacs‚©‚ç‰æ‘œ‚ğŠJ‚­ open-image
 (auto-image-file-mode t)
 (setq thumbs-thumbsdir
        (expand-file-name "~/.emacs-thumbs"))
@@ -245,22 +251,22 @@
 (require 'dired)
 (require 'bf-mode)
 (setq bf-mode-except-ext '("\\.exe$" "\\.com$"))
-(setq bf-mode-html-with-w3m t) ; html $B$O(B w3m $B$GI=<($9$k(B
-(setq bf-mode-archive-list-verbose t) ; $B05=L$5$l$?%U%!%$%k$rI=<((B
-(setq bf-mode-directory-list-verbose t); $B%G%#%l%/%H%jFb$N%U%!%$%k0lMw$rI=<((B
+(setq bf-mode-html-with-w3m t) ; html ‚Í w3m ‚Å•\¦‚·‚é
+(setq bf-mode-archive-list-verbose t) ; ˆ³k‚³‚ê‚½ƒtƒ@ƒCƒ‹‚ğ•\¦
+(setq bf-mode-directory-list-verbose t); ƒfƒBƒŒƒNƒgƒŠ“à‚Ìƒtƒ@ƒCƒ‹ˆê——‚ğ•\¦
 
 ;; ;;wdired
 (require 'wdired)
 
 ;; ;;;------------------------------------------------
-;; ;;;revive.el$B$r;H$C$FA02s5/F0;~$N>uBV$bI|852DG=(B
+;; ;;;revive.el‚ğg‚Á‚Ä‘O‰ñ‹N“®‚Ìó‘Ô‚à•œŒ³‰Â”\
 ;; ;;;------------------------------------------------
 (autoload 'save-current-configuration "revive" "Save status" t)
 (autoload 'resume "revive" "Resume Emacs" t)
 (autoload 'wipe "revive" "Wipe emacs" t)
 
 ;; ;;;------------------------------------------------
-;; ;;;elscreeen$B$r;H$C$F(Btab$B$r4IM}$9$k(B
+;; ;;;elscreeen‚ğg‚Á‚Ätab‚ğŠÇ—‚·‚é
 ;; ;;;------------------------------------------------
 (require 'elscreen)
 (require 'elscreen-dnd)
@@ -286,7 +292,7 @@ screen-list " ")))
 
 
 ;; ;;;------------------------------------------------
-;; ;;;$BF~NO;Y1g(B
+;; ;;;“ü—Íx‰‡
 ;; ;;;------------------------------------------------
 (require 'anything-startup)
 
@@ -296,11 +302,11 @@ screen-list " ")))
 (require 'anything-c-yasnippet)
 (yas/setup "~/.emacs.d/plugins")
 
-;; $B%a%K%e!<$O;H$&(B
+;; ƒƒjƒ…[‚Íg‚¤
 (setq yas/use-menu t)
 
-;; ;;autoinsert$B$K$h$k%F%s%W%l!<%HA^F~(B
-;; ;; ;;ref $B$R$2$]$s(B
+;; ;;autoinsert‚É‚æ‚éƒeƒ“ƒvƒŒ[ƒg‘}“ü
+;; ;; ;;ref ‚Ğ‚°‚Û‚ñ
 (require 'autoinsert)
 (add-hook 'find-file-hooks 'auto-insert)
 (setq auto-insert-directory "~/.emacs.d/template/")
@@ -333,21 +339,21 @@ screen-list " ")))
  (add-hook 'find-file-not-found-hooks 'auto-insert)
 
 ;; ;;;------------------------------------------------
-;; ;;;auto-complete$B$K$h$k<+F0Jd40(B
+;; ;;;auto-complete‚É‚æ‚é©“®•âŠ®
 ;; ;;;------------------------------------------------
 (require 'auto-complete-config)
 (require 'auto-complete-yasnippet)
-;;$B%G%U%)%k%H@_Dj$r;H$&(B
+;;ƒfƒtƒHƒ‹ƒgİ’è‚ğg‚¤
 (ac-config-default)
-;;$B<-=q$N>l=j$r65$($k(B
+;;«‘‚ÌêŠ‚ğ‹³‚¦‚é
 (add-to-list 'ac-dictionary-directories "~/.emacs.d/ac-dict")
-;;$B>o$K(Bauto-complete$B$rM-8z$K$9$k(B
+;;í‚Éauto-complete‚ğ—LŒø‚É‚·‚é
 (global-auto-complete-mode t);
-;;$B<+F0$GJd403+;O(B
+;;©“®‚Å•âŠ®ŠJn
 (setq ac-auto-start t)
-;;$B%H%j%,!<%-!<$O%?%V(B
+;;ƒgƒŠƒK[ƒL[‚Íƒ^ƒu
 ;(ac-set-trigger-key "TAB")
-;;$B%=!<%9(B
+;;ƒ\[ƒX
 (setq ac-sources '(
 		   ac-source-abbrev 
 		   ac-source-dictionary 
@@ -357,7 +363,7 @@ screen-list " ")))
 
 ;; ;(require 'auto-complete-clang)
 ;; (defun my-ac-cc-mode-setup ()
-;;   ;;t$B$J$i<+F0$GJd402hLL$,$G$k!%(Bnil$B$J$iJd40%-!<$K$h$C$F=P$k(B
+;;   ;;t‚È‚ç©“®‚Å•âŠ®‰æ–Ê‚ª‚Å‚éDnil‚È‚ç•âŠ®ƒL[‚É‚æ‚Á‚Äo‚é
 ;;  ; (setq ac-auto-start 3)
 ;;   (setq ac-clang-prefix-header "~/.emacs.d/ac-dict/stdafx.pch")
 ;;   (setq ac-clang-flags '("-w" "-ferror-limit" "1"))
@@ -369,7 +375,7 @@ screen-list " ")))
 
 ;; (defun my-ac-config ()
 ;;   (global-set-key "\M-/" 'ac-start)
-;;   ;; C-n/C-p $B$G8uJd$rA*Br(B
+;;   ;; C-n/C-p ‚ÅŒó•â‚ğ‘I‘ğ
 ;;   (define-key ac-complete-mode-map "\C-n" 'ac-next)
 ;;   (define-key ac-complete-mode-map "\C-p" 'ac-previous)
   
@@ -388,21 +394,20 @@ screen-list " ")))
 
 
 ;; ;;;------------------------------------------------
-;; ;;;$B<-=q$H%9%Z%k(B
+;; ;;;«‘‚ÆƒXƒyƒ‹
 ;; ;;;------------------------------------------------
 ;; http://www4.kcn.ne.jp/~boochang/emacs/ispell.html 
-;; ;;$B<-=q%U%!%$%k(B
-;; ;; $B%3%^%s%I$N@_Dj(B
-;; (setq ispell-program-name "aspell")	; ispell $B$NBe$o$j$K(B aspell $B$r;H$&(B
-;; (setq ispell-grep-command "grep")	; $B%G%U%)%k%H$N(B egrep $B$,(B Cygwin $B$G$O%7%s%\%j%C%/%j%s%/(B
-;; 					; $B$J$N$G!"(BMeadow $B$+$i5/F0$G$-$J$$(B
-;; ;; $BF|K\8l%U%!%$%kCf$N1QC18l%9%Z%k%A%'%C%/$r2DG=$K$9$k(B
+;; ;;«‘ƒtƒ@ƒCƒ‹
+;; ;; ƒRƒ}ƒ“ƒh‚Ìİ’è
+;; (setq ispell-program-name "aspell")	; ispell ‚Ì‘ã‚í‚è‚É aspell ‚ğg‚¤
+;; (setq ispell-grep-command "grep")	; ƒfƒtƒHƒ‹ƒg‚Ì egrep ‚ª Cygwin ‚Å‚ÍƒVƒ“ƒ{ƒŠƒbƒNƒŠƒ“ƒN
+;; 					; ‚È‚Ì‚ÅAMeadow ‚©‚ç‹N“®‚Å‚«‚È‚¢
+;; ;; “ú–{Œêƒtƒ@ƒCƒ‹’†‚Ì‰p’PŒêƒXƒyƒ‹ƒ`ƒFƒbƒN‚ğ‰Â”\‚É‚·‚é
 ;; (eval-after-load "ispell"
 ;;   '(add-to-list 'ispell-skip-region-alist '("[^\000-\377]")))
 
-
 ;; ;;;-----------------------------------------------
-;; ;;;$B%W%m%0%i%_%s%0;Y1g(B
+;; ;;;ƒvƒƒOƒ‰ƒ~ƒ“ƒOx‰‡
 ;; ;;;-----------------------------------------------
 ;; ;; flymake
 (require 'flymake)
@@ -513,7 +518,7 @@ screen-list " ")))
 
 ;;gdb-mode
 (setq gdb-many-windows t)
-(setq gdb-use-separate-io-buffer t) ; "IO buffer" $B$,I,MW$J$$>l9g$O(B  nil $B$G(B
+(setq gdb-use-separate-io-buffer t) ; "IO buffer" ‚ª•K—v‚È‚¢ê‡‚Í  nil ‚Å
 
 ;;gist
 (require 'gist)
@@ -524,7 +529,7 @@ screen-list " ")))
 (setq auto-mode-alist
       (append '(("\\.cs$" . csharp-mode)) auto-mode-alist))
 ;;;-----------------------------------------------
-;;;Emacs shell$B$N@_Dj(B
+;;;Emacs shell‚Ìİ’è
 ;;;-----------------------------------------------
 
 ;; (add-hook 'set-language-environment-hook 
@@ -543,7 +548,7 @@ screen-list " ")))
   (local-set-key "\C-a" 'eshell-bol))
 (add-hook 'eshell-mode-hook 'my-eshell-hook)
 
-;;$B$W$m$s$W(B
+;;‚Õ‚ë‚ñ‚Õ
  (setq eshell-prompt-function
        (lambda nil
 	 (concat
@@ -559,42 +564,38 @@ screen-list " ")))
     (erase-buffer)))
 
 ;;;------------------------------------------------
-;;;$B8!:w$HCV49(B
+;;;ŒŸõ‚Æ’uŠ·
 ;;;------------------------------------------------
 ;;migemo
-;; $B4pK\@_Dj(B
-(when (eq system-type 'windows-nt)
-  (setq migemo-command "d:/bin/emacs-23.2/bin/cmigemo"))
-(when (eq system-type 'darwin) 
-  (setq migemo-command "/usr/local/bin/cmigemo"))
-(setq migemo-options '("-q" "--emacs" "-i" "\a"))
-;; migemo-dict $B$N%Q%9$r;XDj(B
-(setq migemo-dictionary "~/.emacs.d/dict/euc-jp.d/migemo-dict")
+;;; ƒ[ƒ}š‚Ì‚Ü‚Ü“ú–{Œê‚ğƒCƒ“ƒNƒŠƒƒ“ƒ^ƒ‹ƒT[ƒ`‚·‚é
+(require 'migemo)
+(setq migemo-command "cmigemo")
+(setq migemo-options '("-q" "--emacs"))
+;; migemo-dict‚ÌƒpƒX‚ğw’è
+(setq migemo-dictionary "~/.emacs.d/dict/utf-8.d/migemo-dict")
 (setq migemo-user-dictionary nil)
 (setq migemo-regex-dictionary nil)
-
-;; $B%-%c%C%7%e5!G=$rMxMQ$9$k(B
+;; ƒLƒƒƒbƒVƒ…‹@”\‚ğ—˜—p‚·‚é
 (setq migemo-use-pattern-alist t)
 (setq migemo-use-frequent-pattern-alist t)
 (setq migemo-pattern-alist-length 1024)
-;; $B<-=q$NJ8;z%3!<%I$r;XDj!%(B
-;; $B%P%$%J%j$rMxMQ$9$k$J$i!$$3$N$^$^$G9=$$$^$;$s(B
-;;(setq migemo-coding-system 'sjis)
+;; «‘‚Ì•¶šƒR[ƒh‚ğw’èD
+(setq migemo-coding-system 'utf-8)
 
-(load "migemo.el")
-;; $B5/F0;~$K=i4|2=$b9T$&(B
+(load-library "migemo")
+;; ‹N“®‚É‰Šú‰»‚às‚¤
 (migemo-init)
-
+;; Šî–{İ’è
 ;;color-moccur
 (require 'color-moccur)
 
 ;;moccur-edit
 (require 'moccur-edit)
-(setq moccur-split-word t);$B$9$Z!<$9$G6h@Z$i$l$?J#?t$NC18l$r$^$C$A(B
+(setq moccur-split-word t);‚·‚Ø[‚·‚Å‹æØ‚ç‚ê‚½•¡”‚Ì’PŒê‚ğ‚Ü‚Á‚¿
 
 ;;igrep.el
 (require 'igrep)
-;;lgrep$B$K(B-0u8$B%*%W%7%g%s$r$D$1$k$H(BUTF8
+;;lgrep‚É-0u8ƒIƒvƒVƒ‡ƒ“‚ğ‚Â‚¯‚é‚ÆUTF8
 (igrep-define lgrep (igrep-use-zgrep nil) (igrep-regexp-option "-n -0u8"))
 (igrep-find-define lgrep (igrep-use-zgrep nil) (igrep-regexp-option "-n -0u8"))
 
@@ -602,34 +603,34 @@ screen-list " ")))
 (require 'grep-a-lot)
 (grep-a-lot-setup-keys)
 
-;;igrep$BMQ(B
+;;igrep—p
 (grep-a-lot-advise igrep)
 
 ;;grep-edit
 (require 'grep-edit)
 
 ;;;-----------------------------------------------
-;;;$B%-!<%P%$%s%G%#%s%0(B
+;;;ƒL[ƒoƒCƒ“ƒfƒBƒ“ƒO
 ;;;-----------------------------------------------
 
 
 ;;;-----------------------------------------------
-;;;org-mode$B$K$h$kJ8=q=hM}(B
+;;;org-mode‚É‚æ‚é•¶‘ˆ—
 ;;;-----------------------------------------------
-;;$B4pK\@_Dj(B
+;;Šî–{İ’è
 (require 'org)
 
-;;$B%a%b$r$H$k(B
-;; org-remember$B$r;H$&(B
+;;ƒƒ‚‚ğ‚Æ‚é
+;; org-remember‚ğg‚¤
 (org-remember-insinuate)
-;; org-remember$B$N%F%s%W%l!<%H(B
+;; org-remember‚Ìƒeƒ“ƒvƒŒ[ƒg
 (setq org-remember-templates
       '(("Note" ?n "* %?\n  %i\n  %a" nil "Tasks")
 	("Todo" ?t "* TODO %?\n  %i\n  %a" nil "Tasks")))
 ;;Todo
 (setq org-todo-keywords
       '((sequence "TODO(t)" "WAIT(w)" "|" "DONE(d)" "SOMEDAY(s)")))
-;; DONE$B$N;~9o$r5-O?(B
+;; DONE‚Ì‚ğ‹L˜^
 (setq org-log-done 'time)
 
 ;;tex+pdf
@@ -646,19 +647,19 @@ screen-list " ")))
     ("\\subparagraph{%s}" . "\\subparagraph*{%s}")
 ))
 ;;-----------------------------------------------
-;; Windows $B8GM-$N@_Dj(B
+;; Windows ŒÅ—L‚Ìİ’è
 ;;-----------------------------------------------
 ;;cygwin-mount
-(when (eq system-type 'windows-nt)
-  (require 'cygwin-mount)
-  (cygwin-mount-activate))
+;(when (eq system-type 'windows-nt)
+;  (require 'cygwin-mount)
+;  (cygwin-mount-activate))
 
 ;;-----------------------------------------------
-;; HOWM$B!!%&%#%-$C$FN,$9$J!*(B
+;; HOWM@ƒEƒBƒL‚Á‚Ä—ª‚·‚ÈI
 ;;-----------------------------------------------
-;;$B%m!<%I(B
+;;ƒ[ƒh
 (require 'howm)
-;;$B%a%K%e!<$N8@8l$OF|K\8l(B
+;;ƒƒjƒ…[‚ÌŒ¾Œê‚Í“ú–{Œê
 (setq howm-menu-lang 'ja)
 (global-set-key "\C-c,," 'howm-menu)
 (mapc
@@ -669,15 +670,15 @@ screen-list " ")))
              howm-list-grep howm-create
              howm-keyword-to-kill-ring))
 
-;; $B<+F099?7$7$J$$(B 
+;; ©“®XV‚µ‚È‚¢ 
 (setq howm-menu-refresh-after-save nil)
 
-;; $B%j%U%l%C%7%e$7$J$$(B
+;; ƒŠƒtƒŒƒbƒVƒ…‚µ‚È‚¢
 (setq howm-refresh-after-save nil)
 
 
 ;;-----------------------------------------------
-;; mew$B$r;H$C$F%a!<%k(B
+;; mew‚ğg‚Á‚Äƒ[ƒ‹
 ;;-----------------------------------------------
 (autoload 'mew "mew" nil t)
 (autoload 'mew-send "mew" nil t)
@@ -698,7 +699,7 @@ screen-list " ")))
       'mew-send-hook))
 
 ;;-----------------------------------------------
-;; W3M$B$r;H$C$?(B $B%V%i%&%8%s%0(B
+;; W3M‚ğg‚Á‚½ ƒuƒ‰ƒEƒWƒ“ƒO
 ;;-----------------------------------------------
 ;; ;; ;;;w3m
  ;;set w3m
@@ -751,14 +752,13 @@ screen-list " ")))
         ("application/pdf" "\\.pdf$" ("fiber.exe" file))))
 
 ;; -----------------------------------------------
-;; $B$O$F$J(B
+;; ‚Í‚Ä‚È
 ;; -----------------------------------------------
-(add-to-list 'load-path "~/.emacs.d/plugins/simple-hatena-mode/")
-(require 'simple-hatena-mode)
-
+;(add-to-list 'load-path "~/.emacs.d/plugins/simple-hatena-mode/")
+;(require 'simple-hatena-mode)
 ;(setq simple-hatena-default-id "Crest")
 ;(setq simple-hatean-bin "/usr/bin/hw.pl")
-;; ;;hatena-mode$B$H(Bhatenahelper-mode$BMQ(B
+;; ;;hatena-mode‚Æhatenahelper-mode—p
 ;; (autoload 'hatena "hatena-mode" "hatena mode" t)
 ;; (setq hatena-usrid "Crest")
 ;; (setq hatena-plugin-directory "~/site-lisp/")
@@ -770,9 +770,9 @@ screen-list " ")))
 ;(require 'hatena-diary-mode)
 ;(setq hatena-usrid "your username on Hatena::Diary")
 ;(setq hatena-plugin-directory "~/.emacs.d/plugins")
-;;    `hatena-use-file' $B$r(B non-nil $B$K$9$k$H%Q%9%o!<%I$r(B base64 $B$G(B
-;;    $B0E9f2=$7$F%U%!%$%k$KJ]B8$7$^$9$,!"(B"$B?M4V$,8+$F$9$0$o$+$i$J$$(B"$B$0$i$$$N(B
-;;    $B0UL#$7$+$J$$$N$GCm0U$7$F2<$5$$!#(B
+;;    `hatena-use-file' ‚ğ non-nil ‚É‚·‚é‚ÆƒpƒXƒ[ƒh‚ğ base64 ‚Å
+;;    ˆÃ†‰»‚µ‚Äƒtƒ@ƒCƒ‹‚É•Û‘¶‚µ‚Ü‚·‚ªA"lŠÔ‚ªŒ©‚Ä‚·‚®‚í‚©‚ç‚È‚¢"‚®‚ç‚¢‚Ì
+;;    ˆÓ–¡‚µ‚©‚È‚¢‚Ì‚Å’ˆÓ‚µ‚Ä‰º‚³‚¢B
 ;;
 ;; (require 'yahtml)
 ;; (defvar hatena-dir "~/.hatena")
@@ -801,20 +801,20 @@ screen-list " ")))
 ;;-----------------------------------------------
 ;;twittering-mode
 (require 'twittering-mode)
-;;$B%f!<%6L>(B
+;;ƒ†[ƒU–¼
 (setq twittering-username "thayamizu")
-;;$B99?74V3V(B120sec
+;;XVŠÔŠu120sec
 (setq twittering-timer-interval 120)
-;;$B%"%$%3%sI=<((B
+;;ƒAƒCƒRƒ“•\¦
 (setq twittering-icon-mode t)
-;;$B%9%/%m!<%k$9$k(B
+;;ƒXƒNƒ[ƒ‹‚·‚é
 (setq twittering-scroll-mode t)
 
-;;$BA02s5/F0;~$N>uBV$rI|85$9$k(B
+;;‘O‰ñ‹N“®‚Ìó‘Ô‚ğ•œŒ³‚·‚é
 ;(resume)
 
 
-;;$B%5!<%P!<5/F0(B
+;;ƒT[ƒo[‹N“®
 (server-start) 
 
 

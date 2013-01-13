@@ -1,4 +1,6 @@
-((("yas/get-snippet-tables" .
+((("global-set-key" .
+   [1 0 0 0 0 0 0 0 0 0 0 0 0 1])
+  ("yas/get-snippet-tables" .
    [1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0])
   ("FORM_INFO_1" .
    [2 0 0 0 0 0 0 0 0 0 0])
