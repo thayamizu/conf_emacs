@@ -85,6 +85,16 @@
      (expand-file-name "~/.emacs.d/elpa/package.el"))
   (package-initialize))
 
+;;;----------------------------------------------
+;;;•W€IME‚Ìİ’è
+;;;-----------------------------------------------
+(when (eq system-type 'windows-nt)
+  (setq default-input-method "W32-IME")
+  (w32-ime-initialize)
+  (setq-default w32-ime-mode-line-state-indicator "[--]")
+  (setq w32-ime-mode-line-state-indicator-list '("[--]" "[‚ ]" "[--]"))
+  (setq w32-ime-buffer-switch-p nil))
+
 ;;;------------------------------------------------
 ;;;Œ©‚½–Ú
 ;;;------------------------------------------------
@@ -754,6 +764,12 @@ screen-list " ")))
 ;; -----------------------------------------------
 ;; ‚Í‚Ä‚È
 ;; -----------------------------------------------
+(require 'hatena-diary-api)
+(require 'hatena-diary)
+(require 'hatena-markup-mode)
+(setq hatena:d:major-mode 'hatena:markup-mode)
+;(load-file "~/.emacs.d/etc/hatena-conf)
+
 ;(add-to-list 'load-path "~/.emacs.d/plugins/simple-hatena-mode/")
 ;(require 'simple-hatena-mode)
 ;(setq simple-hatena-default-id "Crest")
