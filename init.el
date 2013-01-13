@@ -3,7 +3,7 @@
 ;;------------------------------------------------
 ;;ロードパスの設定
 (add-to-list 'load-path "~/.emacs.d/lib/apel-10.8")
-(add-to-list 'load-path "~/.emacs.d/lib/film-1.14.9")
+(add-to-list 'load-path "~/.emacs.d/lib/flim-1.14.9")
 (add-to-list 'load-path "~/.emacs.d/lib/semi-1.14.6")
 (add-to-list 'load-path "~/.emacs.d/plugins/")
 (add-to-list 'load-path "~/.emacs.d/plugins/yatex")
@@ -11,13 +11,18 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/emacs-w3m") 
 (add-to-list 'load-path "~/.emacs.d/plugins/twittering-mode") 
 (add-to-list 'load-path "~/.emacs.d/plugins/org/contrib/lisp")
+(add-to-list 'load-path "~/.emacs.d/plugins/simple-hatena-mode")
 (add-to-list 'load-path "~/.emacs.d/plugins/org/lisp")
 (add-to-list 'load-path "~/.emacs.d/plugins/csharp-mode")
 (add-to-list 'load-path "~/.emacs.d/plugins/Mew")
 
+;;
+(setenv "PATH" (concat (expand-file-name "~/.emacs.d/bin") (getenv "PATH")))
 
 ;;バックアップファイルを作らない
 (setq backup-inhibited t) 
+
+(setq system-time-locale "C")
 
 ;; 起動時に splash-screen を表示しないようにする。
 ;; emacs --no-splash
@@ -660,7 +665,7 @@ screen-list " ")))
 ;  (cygwin-mount-activate))
 
 ;;-----------------------------------------------
-;; HOWM　ウィキって略すな！
+;; HOWM
 ;;-----------------------------------------------
 ;;ロード
 (require 'howm)
@@ -759,11 +764,74 @@ screen-list " ")))
 ;; -----------------------------------------------
 ;; はてな
 ;; -----------------------------------------------
-(require 'hatena-diary-api)
-(require 'hatena-diary)
-(require 'hatena-markup-mode)
-(setq hatena:d:major-mode 'hatena:markup-mode)
-(load-file "~/.emacs.d/etc/hatena-conf")
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;; simple-hatena-mode
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+(require 'simple-hatena-mode)
+(require 'hatenahelper-mode)
+(add-hook 'simple-hatena-mode-hook
+          '(lambda ()
+             (hatenahelper-mode 1)))
+
+(setq simple-hatena-default-id "Crest")
+
+;; はてダラスクリプトのパス(デフォルト値: hw.pl)
+(setq simple-hatena-bin "~/.emacs.d/bin/hw.pl")
+
+;; はてダラデータを置くディレクトリ(デフォルト値: ~/.hatena)
+(setq simple-hatena-root "~/.emacs.d/hatena")
+
+;; はてダラで使うデフォルトのはてなid(デフォルト値: nil)
+(setq simple-hatena-default-id "Crest")
+
+;;; ;; はてダラで使うデフォルトのグループ名(デフォルト値: nil)
+;;; (setq simple-hatena-default-group "subtech")
+
+;; はてなダイアリーライターのユーザエージェントオプション(デフォルト値:
+;; simple-hatena-mode/vヴァージョン番号)
+(setq simple-hatena-option-useragent "Hatena::Diary::Writer")
+
+;; はてなダイアリーライターのパーマリンクに、タイムスタンプを使うかどう
+;; かを指定する(デフォルト値: t)
+(setq simple-hatena-use-timestamp-permalink-flag nil)
+
+;; 日付を計算する際に用いるオフセット。たとえば以下のように6に設定する
+;; と、午前6時まで前日の日付として扱われる(デフォルト値: nil)
+(setq simple-hatena-time-offset 6)
+
+;; はてなダイアリーライターのデバッグモードオプション(デフォルト値: nil)
+(setq simple-hatena-option-debug-flag t)
+
+;; はてなダイアリーライターのタイムアウトオプション(デフォルト値: 30秒)
+(setq simple-hatena-option-timeout 30)
+
+;; はてなダイアリーライターのクッキーオプション(デフォルト値: t)
+(setq simple-hatena-option-cookie-flag t)
+
+;; はてダラを実行するプロセスのバッファ名(デフォルト値: *SimpleHatena*)
+(setq simple-hatena-process-buffer-name "*SimpleHatena*")
+
+(define-key simple-hatena-mode-map (kbd "C-c C-v") 'simple-hatena-version)
+(define-key simple-hatena-mode-map (kbd "C-c C-c") 'simple-hatena-submit)
+(define-key simple-hatena-mode-map (kbd "C-c C-p") 'simple-hatena-trivial-submit)
+(define-key simple-hatena-mode-map (kbd "C-c C-i") 'simple-hatena-change-default-id)
+(define-key simple-hatena-mode-map (kbd "C-c C-g") 'simple-hatena-change-default-group)
+(define-key simple-hatena-mode-map (kbd "C-c C-n") 'simple-hatena-find-diary-for)
+(define-key simple-hatena-mode-map (kbd "C-c C-b") 'simple-hatena-go-back)
+(define-key simple-hatena-mode-map (kbd "C-c C-f") 'simple-hatena-go-forward)
+(define-key simple-hatena-mode-map (kbd "C-c C-d") 'simple-hatena-toggle-debug-mode)
+(define-key simple-hatena-mode-map (kbd "C-c C-e") 'simple-hatena-exit)
+(define-key simple-hatena-mode-map (kbd       "*") 'simple-hatena-electric-asterisk)
+
+;;;hatena起動
+;; C-c h で起動
+(global-set-key "\C-ch" 'simple-hatena)
+
+;(require 'hatena-diary-api)
+;(require 'hatena-diary)
+;(require 'hatena-markup-mode)
+;(setq hatena:d:major-mode 'hatena:markup-mode)
+;(load-file "~/.emacs.d/etc/hatena-conf")
 
 ;(add-to-list 'load-path "~/.emacs.d/plugins/simple-hatena-mode/")
 ;(require 'simple-hatena-mode)
