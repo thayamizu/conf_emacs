@@ -768,7 +768,7 @@ screen-list " ")))
 (require 'hatena-diary)
 (require 'hatena-markup-mode)
 (setq hatena:d:major-mode 'hatena:markup-mode)
-;(load-file "~/.emacs.d/etc/hatena-conf)
+(load-file "~/.emacs.d/etc/hatena-conf")
 
 ;(add-to-list 'load-path "~/.emacs.d/plugins/simple-hatena-mode/")
 ;(require 'simple-hatena-mode)
