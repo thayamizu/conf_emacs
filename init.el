@@ -48,11 +48,6 @@
 (setq time-stamp-start "last updated : ")
 (setq time-stamp-format "%04y/%02m/%02d")
 (setq time-stamp-end " \\|$")
-
-(setq default-input-method "W32-IME")
-(setq-default w32-ime-mode-line-state-indicator "[--]") ;; Ç®Ç±ÇÃÇ›Ç≈
-(setq w32-ime-mode-line-state-indicator-list '("[--]" "[Ç†]" "[--]")) ;; Ç®Ç±ÇÃÇ›Ç≈
-(w32-ime-initialize) 
 ;;;-----------------------------------------------
 ;;;auto-install.elÇ…ÇÊÇÈEmacsLispÇÃä«óù
 ;;;-----------------------------------------------
@@ -768,7 +763,7 @@ screen-list " ")))
 (require 'hatena-diary)
 (require 'hatena-markup-mode)
 (setq hatena:d:major-mode 'hatena:markup-mode)
-;(load-file "~/.emacs.d/etc/hatena-conf)
+(load-file "~/.emacs.d/etc/hatena-conf")
 
 ;(add-to-list 'load-path "~/.emacs.d/plugins/simple-hatena-mode/")
 ;(require 'simple-hatena-mode)
