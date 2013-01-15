@@ -1,1 +1,0 @@
-perl d:/bin/hw.pl
