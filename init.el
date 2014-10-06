@@ -107,11 +107,11 @@
 (global-font-lock-mode t)
 
 ;; ;;カレント行をハイライトする
- (global-hl-line-mode t)
+(global-hl-line-mode t)
 
 ;; ;;モード行に情報を追加する
 (display-time-mode t)
- (line-number-mode t)
+(line-number-mode t)
 ;; ;;ウインドウの初期値
 ;(setq default-frame-alist
 ;      (append (list
@@ -175,7 +175,6 @@
 (set-fontset-font (frame-parameter nil 'font)
                    'japanese-jisx0208
                    '("Takaoゴシック" . "unicode-bmp"))
-
 
 ;;;------------------------------------------------
 ;;;言語設定
@@ -628,6 +627,15 @@ screen-list " ")))
     ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
     ("\\paragraph{%s}" . "\\paragraph*{%s}")
     ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+
+;;begin_src listings
+(require 'org-latex)
+(add-to-list 'org-export-latex-packages-alist '("" "listings"))
+(add-to-list 'org-export-latex-packages-alist '("" "color"))
+
+(setq org-export-latex-listings 'mited)
+  (setq org-latex-minted-options
+     '(("frame" "lines") ("linenos=true")))
 ;;-----------------------------------------------
 ;; Cygwin 固有の設定
 ;;-----------------------------------------------
@@ -657,9 +665,6 @@ screen-list " ")))
 ;; リフレッシュしない
 (setq howm-refresh-after-save nil)
 
-;;-----------------------------------------------
-;; Wanderlust
-;;-----------------------------------------------
 
 ;;-----------------------------------------------
 ;; W3Mを使った ブラウジング
@@ -712,64 +717,6 @@ screen-list " ")))
          "\\.\\(ps\\|eps\\)$" ("fiber.exe" file))
         ("application/pdf" "\\.pdf$" ("fiber.exe" file))))
 
-;; -----------------------------------------------
-;; はてな
-;; -----------------------------------------------
-;(add-to-list 'load-path "~/.emacs.d/plugins/simple-hatena-mode/")
-;(require 'simple-hatena-mode)
-;(setq simple-hatena-default-id "Crest")
-;(setq simple-hatean-bin "/usr/bin/hw.pl")
-;; ;;hatena-modeとhatenahelper-mode用
-;; (autoload 'hatena "hatena-mode" "hatena mode" t)
-;; (setq hatena-usrid "Crest")
-;; (setq hatena-plugin-directory "~/site-lisp/")
-;; (require 'hatenahelper-mode)
-;; (add-hook 'hatena-mode-hook
-;; 	  '(lambda ()
-;; 	     (hatenahelper-mode 1)))
-
-;(require 'hatena-diary-mode)
-;(setq hatena-usrid "your username on Hatena::Diary")
-;(setq hatena-plugin-directory "~/.emacs.d/plugins")
-;;    `hatena-use-file' を non-nil にするとパスワードを base64 で
-;;    暗号化してファイルに保存しますが、"人間が見てすぐわからない"ぐらいの
-;;    意味しかないので注意して下さい。
-;;
-;; (require 'yahtml)
-;; (defvar hatena-dir "~/.hatena")
-;; (defun hatena ()
-;;   "Open today's hatena diary file."
-;;   (interactive)
-;;   (find-file
-;;    (concatenate 'string hatena-dir "/"
-;;                 (format-time-string "%Y-%m-%d.txt" (current-time)))))
-
-
-;; (defun myhatena-submit ()
-;;   "Submit hatena diary file."
-;;     (interactive)
-;;     (basic-save-buffer)
-;;     (compile 
-;;      (concatenate `string "hw.pl -f " (buffer-name))))
-
-;; (define-derived-mode myhatena-mode yahtml-mode "hatena"
-;;   "Simple hatena diary mode.")
-;; (global-set-key "\C-c\C-p" 'myhatena-submit)
-;; (add-to-list 'auto-mode-alist '("~/.hatena/.+txt$" . myhatena-mode))
-
-;;-----------------------------------------------
-;; Twittering-mode
-;;-----------------------------------------------
-;;twittering-mode
-(require 'twittering-mode)
-;;ユーザ名
-(setq twittering-username "thayamizu")
-;;更新間隔120sec
-(setq twittering-timer-interval 120)
-;;アイコン表示
-(setq twittering-icon-mode t)
-;;スクロールする
-(setq twittering-scroll-mode t)
 
 ;; powerline.el
 (defun arrow-right-xpm (color1 color2)
