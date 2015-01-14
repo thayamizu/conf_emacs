@@ -14,6 +14,7 @@
 (add-to-list 'load-path "~/.emacs.d/plugins/org/contrib/lisp")
 (add-to-list 'load-path "~/.emacs.d/plugins/org/lisp")
 (add-to-list 'load-path "~/.emacs.d/plugins/csharp-mode")
+(add-to-list 'load-path "~/.emacs.d/plugins/color-theme-6.6.0")
 
 ;サーバーとして起動する
 (require 'server)
@@ -112,6 +113,9 @@
 ;; ;;モード行に情報を追加する
 (display-time-mode t)
 (line-number-mode t)
+(setq linum-delay t)
+(defadvice linum-schedule (around my-linum-schedule () activate)
+  (run-with-idle-timer 0.2 nil #'linum-update-current))
 ;; ;;ウインドウの初期値
 ;(setq default-frame-alist
 ;      (append (list
@@ -123,49 +127,55 @@
 ;	       
 ;	       default-frame-alist))
       ;; ;;カラー設定
-(if window-system (progn
-		    ;; ;; 文字の色を設定します。
-		    (add-to-list 'default-frame-alist '(foreground-color . "black"))
-		    ;; ;; 背景色を設定します。
-		    ;(add-to-list 'default-frame-alist '(background-color . "black"))
+(require 'color-theme)                                                          
+(require 'zenburn)                                
+(eval-after-load "color-theme"                                                  
+  '(progn                                                                       
+     (color-theme-initialize)                                                   
+     (color-theme-zenburn)))  
+;; (if window-system (progn
+;; 		    ;; ;; 文字の色を設定します。
+;; 		    (add-to-list 'default-frame-alist '(foreground-color . "black"))
+;; 		    ;; ;; 背景色を設定します。
+;; 		    ;(add-to-list 'default-frame-alist '(background-color . "black"))
 		    
-		    ;; ;; カーソルの色を設定します。
-		    ;(add-to-list 'default-frame-alist '(cursor-color . "cyan"))
-		    ;; ;; マウスポインタの色を設定します。
-		    ;(add-to-list 'default-frame-alist '(mouse-color . "cyan"))
-		    ;; ;; モードラインの文字の色を設定します。
-		    ;(set-face-foreground 'modeline "black")
-		    ;; ;; モードラインの背景色を設定します。
-		    ;(;set-face-background 'modeline "lightgray")
-		    ;; ;; 選択中のリージョンの色を設定します。
-		    ;(;set-face-background 'region "darkcyan")
-		    ;; ;; モードライン（アクティブでないバッファ）の文字色を設定します。
-		    ;(;set-face-foreground 'mode-line-inactive "gray30")
-		    ;; ;; モードライン（アクティブでないバッファ）の背景色を設定します。
-		    ;(set-face-background 'mode-line-inactive "gray85")
-		    ;;画面を透過
-		   ; (add-to-list 'default-frame-alist '(alpha . (80 40)))))
-;; ;; 文字の色を設定します。
-								    ;; ;(add-to-list 'default-frame-alist '(foreground-color . "gray10"))
-;; ;; 背景色を設定します。
-(add-to-list 'default-frame-alist '(background-color . "white"))
-;; ;; カーソルの色を設定します。
-(add-to-list 'default-frame-alist '(cursor-color . "SlateBlue2"))
-;; ;; マウスポインタの色を設定します。
-(add-to-list 'default-frame-alist '(mouse-color . "SlateBlue2"))
-;; ;; モードラインの文字の色を。
-(set-face-foreground 'modeline "gray")
-;; ;; モードラインの背景色を設定します。
-(set-face-background 'modeline "MediumPurple2")
-;; ;; 選択中のリージョンの色を設定します。
-(set-face-background 'region "LightSteelBlue1")
-;; ;; モードライン（アクティブでないバッファ）の文字色を設定します。
-(set-face-foreground 'mode-line-inactive "gray30")
-;; ;; モードライン（アクティブでないバッファ）の背景色を設定します。
-(set-face-background 'mode-line-inactive "gray85")
-;;画面を透過
-;;(add-to-list 'default-frame-alist '(alpha . (90 70)))
- )):
+;; 		    ;; ;; カーソルの色を設定します。
+;; 		    ;(add-to-list 'default-frame-alist '(cursor-color . "cyan"))
+;; 		    ;; ;; マウスポインタの色を設定します。
+;; 		    ;(add-to-list 'default-frame-alist '(mouse-color . "cyan"))
+;; 		    ;; ;; モードラインの文字の色を設定します。
+;; 		    ;(set-face-foreground 'modeline "black")
+;; 		    ;; ;; モードラインの背景色を設定します。
+;; 		    ;(;set-face-background 'modeline "lightgray")
+;; 		    ;; ;; 選択中のリージョンの色を設定します。
+;; 		    ;(;set-face-background 'region "darkcyan")
+;; 		    ;; ;; モードライン（アクティブでないバッファ）の文字色を設定します。
+;; 		    ;(;set-face-foreground 'mode-line-inactive "gray30")
+;; 		    ;; ;; モードライン（アクティブでないバッファ）の背景色を設定します。
+;; 		    ;(set-face-background 'mode-line-inactive "gray85")
+;; 		    ;;画面を透過
+;; 		   ; (add-to-list 'default-frame-alist '(alpha . (80 40)))))
+;; ;; ;; 文字の色を設定します。
+;; 								    ;; ;(add-to-list 'default-frame-alist '(foreground-color . "gray10"))
+;; ;; ;; 背景色を設定します。
+;; (add-to-list 'default-frame-alist '(background-color . "white"))
+;; ;; ;; カーソルの色を設定します。
+;; (add-to-list 'default-frame-alist '(cursor-color . "SlateBlue2"))
+;; ;; ;; マウスポインタの色を設定します。
+;; (add-to-list 'default-frame-alist '(mouse-color . "SlateBlue2"))
+;; ;; ;; モードラインの文字の色を。
+;; (set-face-foreground 'modeline "gray")
+;; ;; ;; モードラインの背景色を設定します。
+;; (set-face-background 'modeline "MediumPurple2")
+;; ;; ;; 選択中のリージョンの色を設定します。
+;; (set-face-background 'region "LightSteelBlue1")
+;; ;; ;; モードライン（アクティブでないバッファ）の文字色を設定します。
+;; (set-face-foreground 'mode-line-inactive "gray30")
+;; ;; ;; モードライン（アクティブでないバッファ）の背景色を設定します。
+;; (set-face-background 'mode-line-inactive "gray85")
+;; ;;画面を透過
+;; ;;(add-to-list 'default-frame-alist '(alpha . (90 70)))
+;;  )):
 
 ;;;------------------------------------------------
 ;;;フォント
@@ -411,9 +421,13 @@ screen-list " ")))
             (lambda ()(local-set-key "\C-cc" 'smart-compile))))
 
 ;;;configure cc-mode-common
- (add-hook 'c++-mode-hook
-          '(lambda ()
-	     (c-set-style "K&R")
+(add-hook 'cc-mode-common-hook
+	  '(lambda () 
+	     (c-set-style "cc-mode")
+	     (setq c-basic-offset 4) 
+	     (c-set-offset 'inline-open 0 ) 
+	     (c-set-offset 'substatement-open 0 ) 
+	     (c-set-offset 'case-label 4 )
 	     (c-toggle-auto-hungry-state t)
 	     (define-key c-mode-base-map "\C-m" 'newline-and-indent)
  	     (flymake-mode t)))
